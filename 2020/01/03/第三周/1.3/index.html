@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第三周/1.3 | 熊猫在路上</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 关于Windows环境下的木马检测思路首先对网络监控记录开放的端口和可疑的IP 然后通过可疑的进程、启动项，慢慢追踪到木马文件本身，将可疑的文件进行对比 再关联到其他的可疑行为，逐渐还原木马攻击流程 工具 ApateDNS、Currports、PCHunter、Autoruns、PowerTool、WinHex 题目的解题流程1.通过ApateDNS发现DNS劫持的IP，然后通过IP找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周&#x2F;1.3">
+<meta property="og:url" content="http://yoursite.com/2020/01/03/%E7%AC%AC%E4%B8%89%E5%91%A8/1.3/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="[toc] 关于Windows环境下的木马检测思路首先对网络监控记录开放的端口和可疑的IP 然后通过可疑的进程、启动项，慢慢追踪到木马文件本身，将可疑的文件进行对比 再关联到其他的可疑行为，逐渐还原木马攻击流程 工具 ApateDNS、Currports、PCHunter、Autoruns、PowerTool、WinHex 题目的解题流程1.通过ApateDNS发现DNS劫持的IP，然后通过IP找">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-01-03T06:10:53.946Z">
+<meta property="article:modified_time" content="2020-01-03T08:53:09.389Z">
+<meta property="article:author" content="熊猫在路上">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="熊猫在路上" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">熊猫在路上</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第三周/1.3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/03/%E7%AC%AC%E4%B8%89%E5%91%A8/1.3/" class="article-date">
+  <time datetime="2020-01-03T06:10:53.946Z" itemprop="datePublished">2020-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三周/1.3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h1 id="关于Windows环境下的木马检测"><a href="#关于Windows环境下的木马检测" class="headerlink" title="关于Windows环境下的木马检测"></a>关于Windows环境下的木马检测</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先对网络监控记录开放的端口和可疑的IP</p>
+<p>然后通过可疑的进程、启动项，慢慢追踪到木马文件本身，将可疑的文件进行对比</p>
+<p>再关联到其他的可疑行为，逐渐还原木马攻击流程</p>
+<p>工具</p>
+<p>ApateDNS、Currports、PCHunter、Autoruns、PowerTool、WinHex</p>
+<h2 id="题目的解题流程"><a href="#题目的解题流程" class="headerlink" title="题目的解题流程"></a>题目的解题流程</h2><p>1.通过ApateDNS发现DNS劫持的IP，然后通过IP找到相应进程，再利用PID找到驻留文件等，最后排查注册表等可能包含的残留文件</p>
+<p>2.查看端口，关注特殊端口，有些注册表修改的启动项不在msconfig中显示</p>
+<h2 id="自己的解题流程"><a href="#自己的解题流程" class="headerlink" title="自己的解题流程"></a>自己的解题流程</h2><p>通过查看启动项和进程，找到了没有数字签名的系统服务，依次找到木马文件等可用信息</p>
+<h1 id="今日渗透"><a href="#今日渗透" class="headerlink" title="今日渗透"></a>今日渗透</h1><h2 id="批量刷漏洞"><a href="#批量刷漏洞" class="headerlink" title="批量刷漏洞"></a>批量刷漏洞</h2><p>看了网上的资料，思路基本上是python爬取url利用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p&#x3D;204</span><br><span class="line"></span><br><span class="line">脚本：</span><br><span class="line">爬取网站整站的url的脚本原版 python2.x执行 脚本名：spider_allsite2.py    </span><br><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1RWW61TkOLuo-z3O1d1vrqA </span><br><span class="line">提取码：539q </span><br><span class="line"></span><br><span class="line">爬取网站100条的url的脚本 python2.x执行 脚本名：spider_allsite2_new.py</span><br><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1ykZFxnGNCWG_nZ0QvXDiRA </span><br><span class="line">提取码：xg0y </span><br><span class="line"></span><br><span class="line">通过搜索引擎site网站获取url的脚本 python3.x执行 脚本名：bing.py</span><br><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1K6uiSjatiE-DPYNLRGjBnQ </span><br><span class="line">提取码：piz1 </span><br><span class="line"></span><br><span class="line">多线程访问网站是否200状态 python3.x执行 脚本名：thread_open200.py</span><br><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1UV5oZwekMN7cOjjgfdk4pQ </span><br><span class="line">提取码：1x2e</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">爬取补天域名，对比一下自己写的</span><br><span class="line">http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p&#x3D;170</span><br><span class="line"></span><br><span class="line">获取二级域名脚本</span><br><span class="line"></span><br><span class="line">def domain():</span><br><span class="line">    with open(&#39;360data.txt&#39;, &#39;a&#39;) as f0:</span><br><span class="line">        with open(&#39;360url.txt&#39;, &#39;r&#39;) as f1:</span><br><span class="line">            for url in f1.readlines():</span><br><span class="line">                print(url)</span><br><span class="line">                urls &#x3D; &quot;http:&#x2F;&#x2F;ce.baidu.com&#x2F;index&#x2F;getRelatedSites?site_address&#x3D;&quot;+url</span><br><span class="line">                opurl &#x3D; urllib.request.urlopen(urls)</span><br><span class="line">                data &#x3D; opurl.read().decode(&#39;utf-8&#39;)</span><br><span class="line">                f0.write(data)</span><br><span class="line">                print(data)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/03/%E7%AC%AC%E4%B8%89%E5%91%A8/1.3/" data-id="ck5kmexjo0001k0tw1ps18ssl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/19/%E7%AC%AC%E4%BA%94%E5%91%A8/1.14/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第五周/1.14
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/02/%E7%AC%AC%E4%B8%89%E5%91%A8/1.2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第三周/1.2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.9/">第四周/1.9</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/">第四周/1.8</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.7/">第四周/1.7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.6/">第四周/1.6</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.10/">第四周/1.10</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 熊猫在路上<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

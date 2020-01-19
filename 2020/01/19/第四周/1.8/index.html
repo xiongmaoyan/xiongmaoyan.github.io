@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第四周/1.8 | 熊猫在路上</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] freebuf%00空字节 https:&#x2F;&#x2F;www.freebuf.com&#x2F;vuls&#x2F;224088.html  注册机制，带入%00，爆出更多信息 工作内容全息分析天津攻击溯源 昨天晚上对每个http协议进行分析 记录了访问过的页面 其中邮件系统 登陆成功，还原查看邮件的部分内容 晚上学习的是全息平台的流量分析思路 木马通信的流量特征基于木马通信的整个过程，着重于体现在流量上的特点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四周&#x2F;1.8">
+<meta property="og:url" content="http://yoursite.com/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="[toc] freebuf%00空字节 https:&#x2F;&#x2F;www.freebuf.com&#x2F;vuls&#x2F;224088.html  注册机制，带入%00，爆出更多信息 工作内容全息分析天津攻击溯源 昨天晚上对每个http协议进行分析 记录了访问过的页面 其中邮件系统 登陆成功，还原查看邮件的部分内容 晚上学习的是全息平台的流量分析思路 木马通信的流量特征基于木马通信的整个过程，着重于体现在流量上的特点">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-01-19T06:07:45.919Z">
+<meta property="article:modified_time" content="2020-01-09T01:11:43.018Z">
+<meta property="article:author" content="熊猫在路上">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="熊猫在路上" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">熊猫在路上</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第四周/1.8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/" class="article-date">
+  <time datetime="2020-01-19T06:07:45.919Z" itemprop="datePublished">2020-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第四周/1.8
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h1 id="freebuf"><a href="#freebuf" class="headerlink" title="freebuf"></a>freebuf</h1><h2 id="00空字节"><a href="#00空字节" class="headerlink" title="%00空字节"></a>%00空字节</h2><blockquote>
+<p><a href="https://www.freebuf.com/vuls/224088.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/224088.html</a></p>
+</blockquote>
+<p>注册机制，带入%00，爆出更多信息</p>
+<h1 id="工作内容"><a href="#工作内容" class="headerlink" title="工作内容"></a>工作内容</h1><h2 id="全息分析"><a href="#全息分析" class="headerlink" title="全息分析"></a>全息分析</h2><p>天津攻击溯源</p>
+<p>昨天晚上对每个http协议进行分析</p>
+<p>记录了访问过的页面</p>
+<p>其中邮件系统</p>
+<p>登陆成功，还原查看邮件的部分内容</p>
+<p>晚上学习的是全息平台的流量分析思路</p>
+<h3 id="木马通信的流量特征"><a href="#木马通信的流量特征" class="headerlink" title="木马通信的流量特征"></a>木马通信的流量特征</h3><p>基于木马通信的整个过程，着重于体现在流量上的特点</p>
+<ul>
+<li><p>dns请求IP，主机连接IP</p>
+<ul>
+<li><p>会产生：DNS会话请求，而且是主机发起的周期性请求，可以通过（聚合分析 会话数量）着重查看频繁且数据交换大的流量来分析DNS协议；</p>
+</li>
+<li><p>还会产生：TCP会话请求（包括HTTP等），体现在主机连接IP，可以通过分析负载（聚合分析 会话IP）查看频繁交互的源IP和目的IP</p>
+</li>
+</ul>
+</li>
+<li><p>主动连接IP</p>
+</li>
+<li><p>大致同上 </p>
+</li>
+<li><p>监听端口，等待连接</p>
+<ul>
+<li>会产生：未知IP 连接 内网IP（固定端口）</li>
+</ul>
+</li>
+</ul>
+<h3 id="知识面"><a href="#知识面" class="headerlink" title="知识面"></a>知识面</h3><p>DGA域名变换</p>
+<p>DNS递归</p>
+<p>DNS soa记录</p>
+<p>IPC内网渗透</p>
+<p>smb协议</p>
+<h3 id="入手点"><a href="#入手点" class="headerlink" title="入手点"></a>入手点</h3><p>特征IP、域名、高危端口</p>
+<h2 id="取证分析"><a href="#取证分析" class="headerlink" title="取证分析"></a>取证分析</h2><p>分为取和分析</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/" data-id="ck5kmexjz000bk0twfpt5e3lg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第四周/1.9
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第四周/1.7</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.9/">第四周/1.9</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/">第四周/1.8</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.7/">第四周/1.7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.6/">第四周/1.6</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.10/">第四周/1.10</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 熊猫在路上<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

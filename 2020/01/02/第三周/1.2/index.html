@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第三周/1.2 | 熊猫在路上</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[toc] 墨者的日志分析1https:&#x2F;&#x2F;www.mozhe.cn&#x2F;bug&#x2F;detail&#x2F;QWVEWUJjbno0WURjS1RvU0pIRyt0UT09bW96aGUmozhe  安全工程师拿到一个日志，里面有一条上传木马的记录，找到那个上传黑客的ip 1、掌握nginx的日志结构； 2、了解上传文件的请求方式； 上传木马的记录，初步怀疑是一句">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周&#x2F;1.2">
+<meta property="og:url" content="http://yoursite.com/2020/01/02/%E7%AC%AC%E4%B8%89%E5%91%A8/1.2/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="[toc] 墨者的日志分析1https:&#x2F;&#x2F;www.mozhe.cn&#x2F;bug&#x2F;detail&#x2F;QWVEWUJjbno0WURjS1RvU0pIRyt0UT09bW96aGUmozhe  安全工程师拿到一个日志，里面有一条上传木马的记录，找到那个上传黑客的ip 1、掌握nginx的日志结构； 2、了解上传文件的请求方式； 上传木马的记录，初步怀疑是一句">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-01-02T00:56:49.841Z">
+<meta property="article:modified_time" content="2020-01-02T10:36:49.858Z">
+<meta property="article:author" content="熊猫在路上">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="熊猫在路上" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">熊猫在路上</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第三周/1.2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/02/%E7%AC%AC%E4%B8%89%E5%91%A8/1.2/" class="article-date">
+  <time datetime="2020-01-02T00:56:49.841Z" itemprop="datePublished">2020-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三周/1.2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h3 id="墨者的日志分析"><a href="#墨者的日志分析" class="headerlink" title="墨者的日志分析"></a>墨者的日志分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.mozhe.cn&#x2F;bug&#x2F;detail&#x2F;QWVEWUJjbno0WURjS1RvU0pIRyt0UT09bW96aGUmozhe</span><br></pre></td></tr></table></figure>
+
+<p>安全工程师拿到一个日志，里面有一条上传木马的记录，找到那个上传黑客的ip</p>
+<p>1、掌握nginx的日志结构；</p>
+<p>2、了解上传文件的请求方式；</p>
+<p>上传木马的记录，初步怀疑是一句话木马</p>
+<p>提交方式为POST</p>
+<p>思路应该是 利用正则匹配POST开头带有php或者常见的一句话后缀</p>
+<p>在日志里搜索<code>post /uploads</code>，就可以看到攻击者的IP，提交获取flag</p>
+<h3 id="webshell访问特征"><a href="#webshell访问特征" class="headerlink" title="webshell访问特征"></a>webshell访问特征</h3><p>webshell的访问特征(主要特征)</p>
+<ol>
+<li>少量ip对其发起访问</li>
+<li>总的访问次数少</li>
+<li>该页面属于孤立页面</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">参考链接</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_34235371&#x2F;article&#x2F;details&#x2F;91884144</span><br><span class="line">https:&#x2F;&#x2F;www.cnblogs.com&#x2F;he1m4n6a&#x2F;p&#x2F;9245155.html</span><br><span class="line">https:&#x2F;&#x2F;www.freebuf.com&#x2F;articles&#x2F;web&#x2F;183520.html</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;tennc&#x2F;webshell</span><br></pre></td></tr></table></figure>
+
+<p>当然不是所有的孤立页面都是webshell，以下情况也会造成孤立页面<br>（1）隐藏管理后台等正常孤立页面的访问<br>（2）扫描器行为，常见漏洞扫描，PoC扫描，Webshell扫描（日志中经常可以看到常见webshell路径加一句话payload的扫描）——这是最主要的干扰数据，需要剔除<br>对于情况（1）采用白名单的方式，对于情况（2）扫描器识别<br>（p.s. 爬虫技术、指纹识别技术、扫描器识别（广义的可衍生到人机识别）可以称为web安全技术的三驾马车，总也绕不过去）</p>
+<p>优点：采用了一定数据分析的方式，网站的访问量达到一定量级时这种检测方法的结果具有较大参考价值。</p>
+<p>缺点：存在一定误报，对于大量的访问日志，检测工具的处理能力和效率会比较低。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">正常来说，一般都是通过webshell扫描工具找到webshell，以上是基于流量分析，在只有日志的环境下，可以通过统计上传、访问次数，来重点标记特征IP。再判断上传请求的方式来找到攻击者IP</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/%E7%AC%AC%E4%B8%89%E5%91%A8/1.2/" data-id="ck5kmexjf0000k0tweg9uemjb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/03/%E7%AC%AC%E4%B8%89%E5%91%A8/1.3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第三周/1.3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/31/%E7%AC%AC%E4%B8%89%E5%91%A8/12.31/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第三周/12.31</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.9/">第四周/1.9</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.8/">第四周/1.8</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.7/">第四周/1.7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.6/">第四周/1.6</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/%E7%AC%AC%E5%9B%9B%E5%91%A8/1.10/">第四周/1.10</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 熊猫在路上<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
