@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>4-17 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="正则,mysql,VM共享目录,宝塔目录,单用户模式">
+    <meta name="description" content="1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4-17">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="1">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="https://iknow-pic.cdn.bcebos.com/b7003af33a87e9508d9b5d831b385343faf2b455">
+<meta property="og:image" content="https://xiongmaozailushang.gitee.io/muggle/muggle/2020/04/17/4.17/javascript:void(0);">
+<meta property="og:image" content="https://xiongmaozailushang.gitee.io/muggle/muggle/2020/04/17/4.17/javascript:void(0);">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/89548/201910/89548-20191008150524246-55348988.png">
+<meta property="article:published_time" content="2020-04-17T02:25:57.000Z">
+<meta property="article:modified_time" content="2020-04-17T12:48:31.779Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="正则">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="VM共享目录">
+<meta property="article:tag" content="宝塔目录">
+<meta property="article:tag" content="单用户模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://iknow-pic.cdn.bcebos.com/b7003af33a87e9508d9b5d831b385343faf2b455">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">4-17</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">4-17</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-17T02:25:57.000Z" itemprop="datePublished" class="page-time">
+  2020-04-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mysql中-含义"><span class="post-toc-number">1.</span> <span class="post-toc-text">Mysql中 &#x2F;*! *&#x2F;含义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正则匹配"><span class="post-toc-number">2.</span> <span class="post-toc-text">正则匹配</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#执行sql文件，恢复数据库"><span class="post-toc-number">3.</span> <span class="post-toc-text">执行sql文件，恢复数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#单用户模式"><span class="post-toc-number">4.</span> <span class="post-toc-text">单用户模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#VM共享目录"><span class="post-toc-number">5.</span> <span class="post-toc-text">VM共享目录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mysql下载安装"><span class="post-toc-number">6.</span> <span class="post-toc-text">mysql下载安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#宝塔目录"><span class="post-toc-number">7.</span> <span class="post-toc-text">宝塔目录</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-4.17"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">4-17</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-17 10:25:57" datetime="2020-04-17T02:25:57.000Z"  itemprop="datePublished">2020-04-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>1</p>
+<a id="more"></a>
+
+<h1 id="Mysql中-含义"><a href="#Mysql中-含义" class="headerlink" title="Mysql中 /*! */含义"></a>Mysql中 /*! */含义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*!40101 SET @OLD_CHARACTER_SET_CLIENT&#x3D;@@CHARACTER_SET_CLIENT *&#x2F;;</span><br><span class="line">&#x2F;*!40101 SET @OLD_CHARACTER_SET_RESULTS&#x3D;@@CHARACTER_SET_RESULTS *&#x2F;;</span><br><span class="line">&#x2F;*!40101 SET @OLD_COLLATION_CONNECTION&#x3D;@@COLLATION_CONNECTION *&#x2F;;</span><br><span class="line">&#x2F;*!40101 SET NAMES utf8 *&#x2F;;</span><br></pre></td></tr></table></figure>
+
+
+<p>比如这样的，一开始以为只是注释，新建sql文件时 就自动忽略这堆东西了，结果还冒出编码问题（编码问题在下一篇中介绍）。</p>
+<p>找了半天原因，原来在mysql中 /<em>! ….</em>/ 不是注释，mysql为了保持兼容，它把一些特有的仅在mysql上用的语句放在/<em>!….</em>/中，这样这些语句如果在其他数据库中是不会被执行，但在mysql中它会执行。</p>
+<h1 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h1><p>贪婪匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\n[A-Z] (.*) 2</span><br><span class="line">替换</span><br><span class="line">\n2</span><br><span class="line">替换行首内容，并完善后续年份字符</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="执行sql文件，恢复数据库"><a href="#执行sql文件，恢复数据库" class="headerlink" title="执行sql文件，恢复数据库"></a>执行sql文件，恢复数据库</h1><p>参考链接</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_41603102/article/details/88948075" target="_blank" rel="noopener">https://blog.csdn.net/qq_41603102/article/details/88948075</a></p>
+</blockquote>
+<p>遇到的问题</p>
+<ol>
+<li><p>数据库表编码utf8mb4，这个编码是mysql5.5之后的版本才出来来的；源</p>
+</li>
+<li><p>你的错误提示是不识别的字符集；</p>
+</li>
+<li><p>是因为数据库百版本的问题导致的，我看到之前网站MYSQL5.1版本，现在是MYSQL5.5版本，从5.5开始采用的是utf8mb4，而我们的数据库版本还是老的utf8；</p>
+</li>
+<li><p>解决方法：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://iknow-pic.cdn.bcebos.com/b7003af33a87e9508d9b5d831b385343faf2b455" alt="img](https://iknow-pic.cdn.bcebos.com/b7003af33a87e9508d9b5d831b385343faf2b455?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1)" title>
+                </div>
+                <div class="image-caption">img](https://iknow-pic.cdn.bcebos.com/b7003af33a87e9508d9b5d831b385343faf2b455?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1)</div>
+            </figure></p>
+</li>
+<li><p>我们用sublime打开数据库，然后将度utf8mb4修改成utf8.</p>
+</li>
+</ol>
+<h1 id="单用户模式"><a href="#单用户模式" class="headerlink" title="单用户模式"></a>单用户模式</h1><p>启动加载内核之前按下键盘e，进入内核选择选项kerbel什么的，在参数末尾输入single或者数字1，回车，按键盘b，即可进入单用户模式，登录单用户后，可以进行密码修改（passwd）</p>
+<h1 id="VM共享目录"><a href="#VM共享目录" class="headerlink" title="VM共享目录"></a>VM共享目录</h1><p>正常情况下，在虚拟机CentOS中安装了vmware-tools后，配置完成共享目录，会自动在/mnt/hgfs下面出现共享目录。</p>
+<p>如果该目录为空，并且通过命令：vmware-hgfsclient 的执行结果可以看到你的共享目录名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@test-server~]# vmware-hgfsclient </span><br><span class="line">sharedir</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以尝试下面的方法解决：</p>
+<p>手动挂载目录：（将共享目录挂载到/mnt下面）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmhgfs-fuse -o allow_other -o auto_unmount &quot;.host:&#x2F;sharedir&quot; &quot;&#x2F;mnt&#x2F;hgfs&quot;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li>./host:/ 是固定写法</li>
+<li>sharedir是使用命令vmware-hgfsclient得到的目录。</li>
+<li>/mnt/hgfs 是挂载点</li>
+</ul>
+<p>这样你就可以到 /mnt 目录下面看到共享过来的目录 sharedir 了。</p>
+<p>脚本实现：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/muggle/muggle/2020/04/17/4.17/javascript:void(0);" alt="复制代码](https://common.cnblogs.com/images/copycode.gif)" title>
+                </div>
+                <div class="image-caption">复制代码](https://common.cnblogs.com/images/copycode.gif)</div>
+            </figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">vmware-hgfsclient | while read folder; do</span><br><span class="line">  echo &quot;[i] Mounting $&#123;folder&#125;   (&#x2F;mnt&#x2F;hgfs&#x2F;$&#123;folder&#125;)&quot;</span><br><span class="line">  mkdir -p &quot;&#x2F;mnt&#x2F;hgfs&#x2F;$&#123;folder&#125;&quot;</span><br><span class="line">  umount -f &quot;&#x2F;mnt&#x2F;hgfs&#x2F;$&#123;folder&#125;&quot; 2&gt;&#x2F;dev&#x2F;null</span><br><span class="line">  vmhgfs-fuse -o allow_other -o auto_unmount &quot;.host:&#x2F;$&#123;folder&#125;&quot; &quot;&#x2F;mnt&#x2F;hgfs&#x2F;$&#123;folder&#125;&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">sleep 2s</span><br></pre></td></tr></table></figure>
+
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/muggle/muggle/2020/04/17/4.17/javascript:void(0);" alt="复制代码](https://common.cnblogs.com/images/copycode.gif)" title>
+                </div>
+                <div class="image-caption">复制代码](https://common.cnblogs.com/images/copycode.gif)</div>
+            </figure></p>
+<p>前提是：</p>
+<p>你安装了VMware-tools后，执行命令：vmware-hgfsclient 能看到你配置的共享目录。否则请检查VMware的共享目录配置是否正确。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img2018.cnblogs.com/blog/89548/201910/89548-20191008150524246-55348988.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+
+
+<p> VMware-tools安装比较简单，这里不再赘述，不懂可以百度下。</p>
+<p>补充：</p>
+<p> Ubuntu下面如果提示：Error: cannot mount filesystem: No such device</p>
+<p>需要先安装open-vm-dkms</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install open-vm-dkms</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="mysql下载安装"><a href="#mysql下载安装" class="headerlink" title="mysql下载安装"></a>mysql下载安装</h1><p>官网下载链接</p>
+<blockquote>
+<p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<p>参考链接</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/bobo553443/article/details/81383194" target="_blank" rel="noopener">https://blog.csdn.net/bobo553443/article/details/81383194</a></p>
+</blockquote>
+<h1 id="宝塔目录"><a href="#宝塔目录" class="headerlink" title="宝塔目录"></a>宝塔目录</h1><p>宝塔安装完，主要在 www 目录，</p>
+<p>backup 备份，其中数据库database与网站site文件分开两目录。panel 面板数据，file_history 文件历史</p>
+<p>此处备份的文件名根据网站名或数据库加时间戳，就留在备份界面里，即便删除还在，<br>此处还有一个宝塔的 bug，等以后补充，就是无法还原网站，宝塔的备份是战五渣，没有一键网站。</p>
+<p>log </p>
+<p>wwwlogs 这是网站访问日志，一般有错误日志，和成功访问日志。如果访问量大 那么访问日志会比较大。</p>
+<p>wwwroot  网站文件</p>
+<p>server 服务器面板</p>
+<p>server 这个应该主要是宝塔内容。子目录主要跟安装了多少软件有关。</p>
+<p>cron， 应该是计划任务。 没有扩展名，就是任务脚本。还有个文件就是计划任务的执行日志。</p>
+<p>data，看起来像 mysql 等数据库的数据文件。</p>
+<p>monodb ,mysql 数据库程序。</p>
+<p>nginx，php 等。好几个文件里有 perl 脚本文件。当然还有更多的 python 文件。</p>
+<p>/www/server/panel</p>
+<p>还有个 panel 文件夹。看起来是宝塔面板代码。</p>
+<p>pannel 的子文件夹有</p>
+<p>btpanel， 面板 </p>
+<p>里面还有界面模板，/www/server/panel/BTPanel/templates/default</p>
+<p>里面有面板界面上点击操作的代码，如果想魔改界面，也许就是优化这个文件夹。</p>
+<p>backup</p>
+<p>class</p>
+<p>config，配置</p>
+<p>data，里面看起来杂</p>
+<p>install，安装脚本。有安装 nginx 的，还有就是安装 php 扩展。如果要给 nginx，php 等加模块，也许要修这里再编译。</p>
+<p>package ,这里是一键安装的软件程序，php 程序。</p>
+<p>plugin 是软件商店的三方插件。如果能写一个，再注册到面板菜单，应该也能显示出来。</p>
+<p>rewrite 里宝塔预设的网站的重写规则，伪静态等。有 apache 和 nginx 两目录。</p>
+<p>/www/server/panel/script</p>
+<p>script，各种脚本backup backup.py GetOS.sh logsBackup rememory.sh<br>backup_alioss.py ftp.sh install.sh logsBackup.py</p>
+<p>ssl  证书文件</p>
+<p>vhost 是网站的配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;www&#x2F;</span><br><span class="line">├── backup ----------------------------------------&gt;宝塔面板的备份文件目录</span><br><span class="line">│   ├── database------------------------------------&gt;宝塔面板的数据库备份目录</span><br><span class="line">│   ├── panel---------------------------------------&gt;宝塔面板配置自动备份目录（6.9.32版本新添加）</span><br><span class="line">│   │   └── 2019-10-16------------------------------&gt;宝塔面板配置自动备份的文件，默认是以年月日格式备份，数量为15天</span><br><span class="line">│   └── site----------------------------------------&gt;宝塔面板站点备份目录</span><br><span class="line">├── server------------------------------------------&gt;宝塔面板服务目录（比较关键）</span><br><span class="line">│   ├── data----------------------------------------&gt;mysql数据库服务的目录</span><br><span class="line">├── dapao.err-----------------------------------&gt;数据库错误日志文件（比较重要，数据库启动不了可以将此日志文件打开，找到最新的日志发给DBA进行分析错误）</span><br><span class="line">├── dapao.pid-------------------------------&gt;存放数据库pid的文件</span><br><span class="line">│   ├── nginx---------------------------------------&gt;nginx的主目录</span><br><span class="line">│   │   ├── client_body_temp</span><br><span class="line">│   │   ├── conf------------------------------------&gt;nginx的默认配置目录</span><br><span class="line">│   │   ├── fastcgi_temp</span><br><span class="line">│   │   ├── html</span><br><span class="line">│   │   │   ├── 50x.html</span><br><span class="line">│   │   │   └── index.html</span><br><span class="line">│   │   ├── logs--------------------------------------&gt;nginx的日志目录</span><br><span class="line">│   │   │   ├── error.log</span><br><span class="line">│   │   │   └── nginx.pid</span><br><span class="line">│   │   ├── off</span><br><span class="line">│   │   ├── proxy_cache_dir</span><br><span class="line">│   │   ├── proxy_temp_dir</span><br><span class="line">│   │   ├── rpm.pl</span><br><span class="line">│   │   ├── sbin</span><br><span class="line">│   │   │   └── nginx--------------------------------&gt;nginx的启动文件</span><br><span class="line">│   │   ├── scgi_temp</span><br><span class="line">│   │   ├── uwsgi_temp</span><br><span class="line">│   │   ├── version.pl</span><br><span class="line">│   │   └── waf</span><br><span class="line">│   │   ├── config.lua</span><br><span class="line">│   │   ├── init.lua</span><br><span class="line">│   │   └── waf.lua</span><br><span class="line">│   ├── panel-----------------------------------------&gt;面板文件目录（最为重要）</span><br><span class="line">│   │   ├── BTPanel</span><br><span class="line">│   │   ├── class</span><br><span class="line">│   │   ├── config</span><br><span class="line">│   │   ├── data</span><br><span class="line">│   │   ├── default.pl</span><br><span class="line">│   │   ├── init.sh</span><br><span class="line">│   │   ├── install-----------------------------------&gt;面板软件安装脚本路径</span><br><span class="line">│   │   │   ├── install_soft.sh</span><br><span class="line">│   │   │   ├── lib.sh</span><br><span class="line">│   │   │   ├── mysql.sh</span><br><span class="line">│   │   │   ├── nginx.sh</span><br><span class="line">│   │   │   ├── phpmyadmin.sh</span><br><span class="line">│   │   │   ├── php.sh</span><br><span class="line">│   │   │   ├── public.sh------------------------------&gt;安装软件主脚本</span><br><span class="line">│   │   │   └── pureftpd.sh</span><br><span class="line">│   │   ├── license.txt</span><br><span class="line">│   │   ├── logs---------------------------------------&gt;面板日志存放目录</span><br><span class="line">│   │   │   ├── access.log-----------------------------&gt;面板访问日志文件</span><br><span class="line">│   │   │   ├── certbot.log</span><br><span class="line">│   │   │   ├── error.log--------------------------------&gt;面板错误日志文件</span><br><span class="line">（面板打不开或者软件安装不了，可以打开这个文件将最新的日志信息发到宝塔论坛）</span><br><span class="line">│   │   │   ├── panel.pid</span><br><span class="line">│   │   │   ├── request</span><br><span class="line">│   │   │   │   └── 2019-10-16.json</span><br><span class="line">│   │   │   └── task.log</span><br><span class="line">│   │   ├── rewrite-------------------------------------&gt;伪静态存放目录</span><br><span class="line">│   │   │   ├── apache----------------------------------&gt;apache默认的伪静态规则目录</span><br><span class="line">│   │   │   │   ├── dedecms.conf</span><br><span class="line">│   │   │   │   ├── default.conf</span><br><span class="line">│   │   │   │   ├── discuzx2.conf</span><br><span class="line">│   │   │   │   ├── discuzx3.conf</span><br><span class="line">│   │   │   │   ├── discuzx.conf</span><br><span class="line">│   │   │   │   ├── ecshop.conf</span><br><span class="line">│   │   │   │   ├── EmpireCMS.conf</span><br><span class="line">│   │   │   │   ├── list.txt</span><br><span class="line">│   │   │   │   ├── mvc.conf</span><br><span class="line">│   │   │   │   ├── phpcms.conf</span><br><span class="line">│   │   │   │   ├── phpwind.conf</span><br><span class="line">│   │   │   │   ├── thinkphp.conf</span><br><span class="line">│   │   │   │   ├── wordpress.conf</span><br><span class="line">│   │   │   │   └── zblog.conf</span><br><span class="line">│   │   │   └── nginx-----------------------------------&gt;nginx默认的伪静态规则存放目录</span><br><span class="line">│   │   │   ├── dabr.conf</span><br><span class="line">│   │   │   ├── dbshop.conf</span><br><span class="line">│   │   │   ├── dedecms.conf</span><br><span class="line">│   │   │   ├── default.conf</span><br><span class="line">│   │   │   ├── discuz.conf</span><br><span class="line">│   │   │   ├── discuzx2.conf</span><br><span class="line">│   │   │   ├── discuzx3.conf</span><br><span class="line">│   │   │   ├── discuzx.conf</span><br><span class="line">│   │   │   ├── drupal.conf</span><br><span class="line">│   │   │   ├── ecshop.conf</span><br><span class="line">│   │   │   ├── emlog.conf</span><br><span class="line">│   │   │   ├── EmpireCMS.conf</span><br><span class="line">│   │   │   ├── laravel5.conf</span><br><span class="line">│   │   │   ├── maccms.conf</span><br><span class="line">│   │   │   ├── mvc.conf</span><br><span class="line">│   │   │   ├── niushop.conf</span><br><span class="line">│   │   │   ├── phpcms.conf</span><br><span class="line">│   │   │   ├── phpwind.conf</span><br><span class="line">│   │   │   ├── sablog.conf</span><br><span class="line">│   │   │   ├── seacms.conf</span><br><span class="line">│   │   │   ├── shopex.conf</span><br><span class="line">│   │   │   ├── thinkphp.conf</span><br><span class="line">│   │   │   ├── typecho2.conf</span><br><span class="line">│   │   │   ├── typecho.conf</span><br><span class="line">│   │   │   ├── wordpress.conf</span><br><span class="line">│   │   │   ├── wp2.conf</span><br><span class="line">│   │   │   └── zblog.conf</span><br><span class="line">│   │   ├── runconfig.py</span><br><span class="line">│   │   ├── runserver.py</span><br><span class="line">│   │   ├── runserver.pyc</span><br><span class="line">│   │   ├── script-----------------------------------------------&gt;面板计划任务备份脚本目录</span><br><span class="line">│   │   │   ├── backup</span><br><span class="line">│   │   │   ├── backup.py</span><br><span class="line">│   │   │   ├── ftp.sh</span><br><span class="line">│   │   │   ├── GetOS.sh</span><br><span class="line">│   │   │   ├── install.sh</span><br><span class="line">│   │   │   ├── logsBackup</span><br><span class="line">│   │   │   ├── logsBackup.py</span><br><span class="line">│   │   │   └── rememory.sh</span><br><span class="line">│   │   ├── ssl--------------------------------------------------&gt;面板证书目录</span><br><span class="line">│   │   │   ├── certificate.pem</span><br><span class="line">│   │   │   └── privateKey.pem</span><br><span class="line">│   │   ├── task.py</span><br><span class="line">│   │   ├── tmp</span><br><span class="line">│   │   ├── tools.py</span><br><span class="line">│   │   ├── tools.pyc</span><br><span class="line">│   │   └── vhost------------------------------------------------&gt;站点配置文件目录</span><br><span class="line">│   │   ├── apache-------------------------------------------&gt;apache 站点配置文件目录</span><br><span class="line">│   │   │   ├── 0.default.conf</span><br><span class="line">│   │   │   └── dapao.com.conf</span><br><span class="line">│   │   ├── cert---------------------------------------------&gt;站点证书目录</span><br><span class="line">│   │   ├── nginx--------------------------------------------&gt;nginx站点配置文件目录</span><br><span class="line">│   │   │   ├── 0.default.conf</span><br><span class="line">│   │   │   ├── dapao.com.conf</span><br><span class="line">│   │   │   └── phpfpm_status.conf</span><br><span class="line">│   │   ├── rewrite-----------------------------------------&gt;站点重定向配置文件目录</span><br><span class="line">│   │   │   └── dapao.com.conf</span><br><span class="line">│   │   ├── template</span><br><span class="line">│   │   │   ├── apache</span><br><span class="line">│   │   │   └── nginx</span><br><span class="line">│   │   │   ├── anti.conf</span><br><span class="line">│   │   │   ├── error_page.conf</span><br><span class="line">│   │   │   ├── other.conf</span><br><span class="line">│   │   │   ├── proxy.conf</span><br><span class="line">│   │   │   ├── redirect.conf</span><br><span class="line">│   │   │   └── ssl.conf</span><br><span class="line">│   │   ├── tomcat-------------------------------------------&gt;tomcat站点配置文件目录</span><br><span class="line">│   │   └── wafconf</span><br><span class="line">│   │   ├── args</span><br><span class="line">│   │   ├── blockip</span><br><span class="line">│   │   ├── cookie</span><br><span class="line">│   │   ├── denycc</span><br><span class="line">│   │   ├── post</span><br><span class="line">│   │   ├── returnhtml</span><br><span class="line">│   │   ├── url</span><br><span class="line">│   │   ├── user-agent</span><br><span class="line">│   │   ├── whiteip</span><br><span class="line">│   │   └── whiteurl</span><br><span class="line">│   ├── php--------------------------------------------------------&gt;php安装目录</span><br><span class="line">│   │   └── 54</span><br><span class="line">│   ├── phpmyadmin</span><br><span class="line">│   ├── pure-ftpd</span><br><span class="line">├── wwwlogs--------------------------------------------------------&gt;站点日志目录（当站点打不开或者出错，将最新错误日志发到论坛）</span><br><span class="line">│   ├── access.log</span><br><span class="line">│   ├── dapao.com.error.log</span><br><span class="line">│   ├── dapao.com.log</span><br><span class="line">│   ├── nginx_error.log</span><br><span class="line">│   └── waf</span><br><span class="line">├── wwwroot--------------------------------------------------------&gt;站点根目录</span><br><span class="line">│   └── dapao.com</span><br><span class="line">│   ├── 404.html</span><br><span class="line">│   └── index.html</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-04-17T12:48:31.779Z" itemprop="dateUpdated">2020-04-17 20:48:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2020/04/17/4.17/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/VM%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95/" rel="tag">VM共享目录</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E5%8D%95%E7%94%A8%E6%88%B7%E6%A8%A1%E5%BC%8F/" rel="tag">单用户模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E5%AE%9D%E5%A1%94%E7%9B%AE%E5%BD%95/" rel="tag">宝塔目录</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&title=《4-17》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&title=《4-17》 — 熊猫在路上&source=1" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《4-17》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2020/06/05/6.5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">6-5</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/muggle/2020/04/16/4.16/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">4-16</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&title=《4-17》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&title=《4-17》 — 熊猫在路上&source=1" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《4-17》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2020/04/17/4.17/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

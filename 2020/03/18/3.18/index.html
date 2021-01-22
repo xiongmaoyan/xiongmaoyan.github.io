@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>3-18 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="windows">
+    <meta name="description" content="学习磁盘取证，木马溯源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-18">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="学习磁盘取证，木马溯源">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-03-18T04:15:57.000Z">
+<meta property="article:modified_time" content="2020-03-18T10:08:39.919Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3-18</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3-18</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-18T04:15:57.000Z" itemprop="datePublished" class="page-time">
+  2020-03-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows-XML事件日志（EVTX）格式"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows XML事件日志（EVTX）格式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-3.18"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3-18</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-18 12:15:57" datetime="2020-03-18T04:15:57.000Z"  itemprop="datePublished">2020-03-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>学习磁盘取证，木马溯源</p>
+<a id="more"></a>
+
+
+
+<h1 id="Windows-XML事件日志（EVTX）格式"><a href="#Windows-XML事件日志（EVTX）格式" class="headerlink" title="Windows XML事件日志（EVTX）格式"></a>Windows XML事件日志（EVTX）格式</h1><p>参考链接</p>
+<blockquote>
+<p>[<a href="https://github.com/libyal/libevtx/blob/master/documentation/Windows%20XML%20Event%20Log%20%28EVTX%29.asciidoc#2-file-header]" target="_blank" rel="noopener">https://github.com/libyal/libevtx/blob/master/documentation/Windows%20XML%20Event%20Log%20%28EVTX%29.asciidoc#2-file-header]</a>(<a href="https://github.com/libyal/libevtx/blob/master/documentation/Windows" target="_blank" rel="noopener">https://github.com/libyal/libevtx/blob/master/documentation/Windows</a> XML Event Log (EVTX).asciidoc#2-file-header)</p>
+</blockquote>
+<p>Windows Defender的病毒扫描文件（Defender它是系统自带的病毒检测工具），隔离文件手动删除<br>扫描记录和病毒库备份：C\ProgramData\Microsoft\Windows Defender\Scans\History\Results\Quick<br>C\ProgramData\Microsoft\Windows Defender\Scans\History\Results\Resour</p>
+<p>activex控件目录：WINDOWS\Downloaded Program Files </p>
+<p>dwusplay.exe的描述为“ <strong>InstallShield更新服务安装程序播放器</strong> ”</p>
+<p>dwusplay.exe通常位于“ C：\ Windows \ Downloaded Program Files \”文件夹中。</p>
+<p>日志Microsoft-Windows-Bits-Client中记录Bits传送作业，可以看到下载文件操作</p>
+<p>渗透要积累</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/hookjoy/category/556211.html" target="_blank" rel="noopener">https://www.cnblogs.com/hookjoy/category/556211.html</a></p>
+</blockquote>
+<p>应急响应-先知社区</p>
+<blockquote>
+<p><a href="https://xz.aliyun.com/t/2524#toc-33" target="_blank" rel="noopener">https://xz.aliyun.com/t/2524#toc-33</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-18T10:08:39.919Z" itemprop="dateUpdated">2020-03-18 18:08:39</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2020/03/18/3.18/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/windows/" rel="tag">windows</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&title=《3-18》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&title=《3-18》 — 熊猫在路上&source=学习磁盘取证，木马溯源" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-18》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2020/03/19/3.19/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">3-19</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/muggle/2020/03/17/3.17/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">3-17</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&title=《3-18》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&title=《3-18》 — 熊猫在路上&source=学习磁盘取证，木马溯源" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-18》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2020/03/18/3.18/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

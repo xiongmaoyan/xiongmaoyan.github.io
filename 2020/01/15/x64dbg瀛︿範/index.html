@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>学习逆向 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="逆向,汇编">
+    <meta name="description" content="零基础x64dbg教程大纲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习逆向">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="零基础x64dbg教程大纲">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="https://attach.52pojie.cn/forum/202001/15/110801at64uoojhwdtwcrc.png">
+<meta property="og:image" content="https://attach.52pojie.cn/forum/202001/15/110814lp8h04f58000b08m.png">
+<meta property="og:image" content="https://attach.52pojie.cn/forum/202001/15/110817nh0har21bu1yp1rx.png">
+<meta property="article:published_time" content="2020-01-15T06:24:57.000Z">
+<meta property="article:modified_time" content="2020-03-19T09:55:11.991Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="逆向">
+<meta property="article:tag" content="汇编">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://attach.52pojie.cn/forum/202001/15/110801at64uoojhwdtwcrc.png">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">学习逆向</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">学习逆向</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-15T06:24:57.000Z" itemprop="datePublished" class="page-time">
+  2020-01-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E9%80%86%E5%90%91/">逆向</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#零基础x64dbg教程大纲"><span class="post-toc-number">1.</span> <span class="post-toc-text">零基础x64dbg教程大纲</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#32位与64位汇编基础"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">32位与64位汇编基础</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-x64dbg学习"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">学习逆向</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-15 14:24:57" datetime="2020-01-15T06:24:57.000Z"  itemprop="datePublished">2020-01-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E9%80%86%E5%90%91/">逆向</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>零基础x64dbg教程大纲</p>
+<a id="more"></a>
+
+
+
+<h1 id="零基础x64dbg教程大纲"><a href="#零基础x64dbg教程大纲" class="headerlink" title="零基础x64dbg教程大纲"></a>零基础x64dbg教程大纲</h1><blockquote>
+<p><a href="https://www.52pojie.cn/thread-1090584-1-1.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-1090584-1-1.html</a></p>
+</blockquote>
+<h2 id="32位与64位汇编基础"><a href="#32位与64位汇编基础" class="headerlink" title="32位与64位汇编基础"></a>32位与64位汇编基础</h2><p>一、前言<br>  看到标题，可能有些人问为什么要学汇编，我们不是来学<a href="https://www.52pojie.cn/forum-5-1.html" target="_blank" rel="noopener">脱壳</a><a href="https://www.52pojie.cn/" target="_blank" rel="noopener">破解</a>的么？其实x64dbg中的内存窗口里大部分都是汇编指令，只有掌握了一些汇编基础，才能更好的破解。本课的汇编知识是针对破解的，并未完全是汇编。</p>
+<p>二、正文<br>  <strong>1、二进制、十进制、十六进制：</strong><br>  二进制：二进制是计算技术中广泛采用的一种数制，由0和1两个数码来表示。进位规则是“逢二进一”，借位规则是“借一当二”。当前的计算机系统使用的基本上是二进制系统，数据在计算机中主要是以补码的形式存储的，一般在末尾加D表示二进制，如：1110D、0101D等<br>  十进制：十进制数用0、1、2、3………9 ， 这十个数来表示。十进制（计数法）是以10为基础数字系统,满十进一，是我们生活中最常见，也是最常用的。<br>  十六进制：十六进制在数学中是一种逢16进1的进位制。一般用数字0到9和字母A到F（或a<del>f）表示，其中:A</del>F表示10~15，这些称作十六进制数，十六进制一位可以对应4位二进制数字，在调试器中，内存地址就是以十六进制表示的。</p>
+<p>  <strong>2、通用寄存器：</strong><br>  <strong>32位汇编：</strong><br>    在32位汇编中，通用寄存器包括了8个32位的寄存器：EAX、EBX、ECX、EDX、ESP、EBP、EDI及ESI。其中EAX、EBX、ECX、EDX在一般情况下作为通用的数据寄存器，用来暂时存放计算过程中所用到的操作数、结果或其他信息。<br>如图：  <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://attach.52pojie.cn/forum/202001/15/110801at64uoojhwdtwcrc.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure><br>    除此之外，这8个寄存器，还有以下作用：<br>    EAX作为累加器用，所以它是算术运算的主要寄存器。在乘除指令中指定用来存放操作数。另外，所有的I/O指令都使用AX或AL与外部设备传送信息。　<br>    EBX在计算存储器地址时，可作为基址寄存器使用。<br>    ECX常用来保存计数值，如移位指令、循环指令和串处理指令中用作隐含的计数器。<br>    EDX在作双字长运算时，可把DX和AX组合在一起存放一个双字长数，DX用来存放高16位数据。此外，对某些I/O操作，DX可用来存放I/O的端口地址。<br>    ESI是源变址寄存器<br>    EDI是目的变址寄存器　　<br>    ESP称为堆栈指针寄存器，用来指出栈顶的偏移地址。<br>    EBP称为基址指针寄存器，在寻址时作为基地址寄存器使用，但它必须与堆栈段寄存器SS联用来确定堆栈段中的存储单元地址<br>  <strong>64位汇编：</strong><br>    在破解中32位汇编与64最大不同就体现在寄存器与内存地址上，32位内存的最大值为0xFFFFFFFF，而64位汇编内存最大值是0xFFFFFFFFFFFFFFFF，此外64位汇编中有16个寄存器，是32位汇编的两倍，这些寄存器分别为：RAX、RBX、RBP、RSP、RSI、RDI、R8、R9、R10、R11、R12、R13、R14、R15，用途与32位汇编的寄存器相似，用来暂时存放计算过程中所用到的操作数、结果或其他信息。<br>如图： <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://attach.52pojie.cn/forum/202001/15/110814lp8h04f58000b08m.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure></p>
+<p>  <strong>3、**</strong>标志寄存器（标志位）：**<br>    用来记录程序中运行结果的状态信息，它们是根据有关指令的运行结果由(CPU)自动设置的。其中记录的状态信息作为后续条跳转指令的控制条件，称为条件码。<br>如图： <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://attach.52pojie.cn/forum/202001/15/110817nh0har21bu1yp1rx.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure><br>    其中，这8个标志位都有不同的作用：<br>    进位标志——CF：记录运算时最高有效位产生的进位值，这里的进位指二进制的无符号数据。<br>    符号标志——SF：记录运算结果的符号。结果为负时为1，否则为0。<br>    零标志——ZF：运算结果为0时ZF位为1，否则为0。<br>    溢出标志——OF：用于判断溢出（注意：溢出这个概念只对于有符号数据而言，就如同进位只对于无符号数据而言）当OF=0时，说明没有溢出；当OF=1时，说明溢出了。<br>    辅助进位标志——AF：记录运算时第3位产生的进位值。<br>    奇偶标志——PF：用来为机器中传送信息时可能产生的代码出错情况提供检验条件。当结果操作数中1的个数为偶数时为1，否则为0。<br>    定时器溢出标志——TF：当cpu在执行完一条指令后，如果检测到TF位的值为1，则产生单步中断，引发中断过程。通过这个位，就可以在debug中对程序进行单步跟踪。<br>    中断允许标志位——IF：中断允许标志位。当IF=1时，cpu在执行完当前指令后响应中断，引发中断过程；当IF=0时，则不响应可屏蔽中断。<br>    方向标志位——DF：当DF=0时，每次操作后，ESI、EDI递增；DF=1时，每次操作后，ESI、EDI递减。</p>
+<p>三. 后记<br>     由于这段时间在忙着制作教程配套的破解<a href="https://down.52pojie.cn/Tools/" target="_blank" rel="noopener">工具包</a>，所以耽误了很长时间，教程做的比较匆忙，有什么问题可在下面指出。等做完破解工具包时，我会发上来供大家使用。小问题：各个进制的转换方法？请在下面回答，下一节揭晓答案。 </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-19T09:55:11.991Z" itemprop="dateUpdated">2020-03-19 17:55:11</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E9%80%86%E5%90%91/" rel="tag">逆向</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&title=《学习逆向》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&title=《学习逆向》 — 熊猫在路上&source=零基础x64dbg教程大纲" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习逆向》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2020/01/15/1.15/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">1-15</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/muggle/2020/01/14/1.14/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">1-14</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&title=《学习逆向》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&title=《学习逆向》 — 熊猫在路上&source=零基础x64dbg教程大纲" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习逆向》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2020/01/15/x64dbg%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

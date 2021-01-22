@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>12-30 | 熊猫在路上</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="可执行文件,木马启动方式,PE文件头">
+    <meta name="description" content="学习可执行文件格式、木马启动的方式以及PE文件头">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12-30">
+<meta property="og:url" content="https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/index.html">
+<meta property="og:site_name" content="熊猫在路上">
+<meta property="og:description" content="学习可执行文件格式、木马启动的方式以及PE文件头">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2019-12-30T08:15:57.000Z">
+<meta property="article:modified_time" content="2020-03-19T09:59:50.482Z">
+<meta property="article:author" content="熊猫在路上">
+<meta property="article:tag" content="可执行文件">
+<meta property="article:tag" content="木马启动方式">
+<meta property="article:tag" content="PE文件头">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/muggle/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/muggle/img/brand.jpg)">
+      <div class="brand">
+        <a href="/muggle/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/muggle/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">熊猫在路上</h5>
+          <a href="mailto:2439046455@qq.com" title="2439046455@qq.com" class="mail">2439046455@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xiongmaoyan" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/muggle/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">12-30</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">12-30</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-30T08:15:57.000Z" itemprop="datePublished" class="page-time">
+  2019-12-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见的可执行文件格式"><span class="post-toc-number">1.</span> <span class="post-toc-text">常见的可执行文件格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DLL与EXE"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DLL与EXE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DLL概念"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">DLL概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统中重要的DLL"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">系统中重要的DLL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么写DLL？"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">为什么写DLL？</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见的木马启动方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的木马启动方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过”开始程序启动”"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">通过”开始程序启动”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过win-ini"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">通过win.ini</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过注册表启动"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">通过注册表启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过Autoexec-bat、winstart-bat、config-sys文件"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">通过Autoexec.bat、winstart.bat、config.sys文件 　</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过System-ini文件"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">通过System.ini文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过服务加载"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">通过服务加载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过某特定程序或文件启动"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">通过某特定程序或文件启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#寄生于特定程序之中"><span class="post-toc-number">2.7.1.</span> <span class="post-toc-text">寄生于特定程序之中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将特定的程序改名"><span class="post-toc-number">2.7.2.</span> <span class="post-toc-text">将特定的程序改名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件关联"><span class="post-toc-number">2.7.3.</span> <span class="post-toc-text">文件关联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过进程保护"><span class="post-toc-number">2.7.4.</span> <span class="post-toc-text">通过进程保护</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过启动文件夹"><span class="post-toc-number">2.7.5.</span> <span class="post-toc-text">通过启动文件夹</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PE文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">PE文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件结构"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">文件结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DOS头"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">DOS头</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-12.30"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">12-30</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-30 16:15:57" datetime="2019-12-30T08:15:57.000Z"  itemprop="datePublished">2019-12-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/muggle/categories/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">每日学习小结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>学习可执行文件格式、木马启动的方式以及PE文件头</p>
+<a id="more"></a>
+
+
+
+
+
+<h1 id="常见的可执行文件格式"><a href="#常见的可执行文件格式" class="headerlink" title="常见的可执行文件格式"></a>常见的可执行文件格式</h1><p>exe、dll、sys、com、bat、cmd、scr、pif、reg、txt等等</p>
+<p>查看-PCHounter-系统杂项-文件关联</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">工具链接</span><br><span class="line">https:&#x2F;&#x2F;down.52pojie.cn&#x2F;Tools&#x2F;Anti_Rootkit&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><strong>可执行文件的文件格式常见有：</strong><br><strong>exe 和 dll（Windows 系列）、elf（Linux 系列）和 Mach-O（Mac系列）</strong></p>
+<h2 id="DLL与EXE"><a href="#DLL与EXE" class="headerlink" title="DLL与EXE"></a>DLL与EXE</h2><h3 id="DLL概念"><a href="#DLL概念" class="headerlink" title="DLL概念"></a>DLL概念</h3><p>DLL中虽然包含了可执行代码却不能单独执行，而应由Windows应用程序直接或间接调用。</p>
+<p>就相当于python调用的模块，<strong>DLL将程序代码封装成函数</strong></p>
+<p>DLL和EXE文件一样，其中包含的也是程序的代码和程序所需的资源(比如图标、对话框、字符串等)</p>
+<p>DLL中的代码是以 API函数形式出现的，通俗地说，DLL中包含的程序代码都被做成了一个个小模块，应用程序通过按下所需DLL中特定的按钮，来调用DLL中这个按钮所代表的功能</p>
+<h3 id="系统中重要的DLL"><a href="#系统中重要的DLL" class="headerlink" title="系统中重要的DLL"></a>系统中重要的DLL</h3><p>其中Windows系统有三个重要的DLL：Kernel32.dll（内核相关）、User32.dll（用户相关）、 GDI32.dll（图形设备接口相关）</p>
+<h3 id="为什么写DLL？"><a href="#为什么写DLL？" class="headerlink" title="为什么写DLL？"></a>为什么写DLL？</h3><ul>
+<li>方便扩展</li>
+<li>便于合作</li>
+<li>节省内存</li>
+</ul>
+<p>分析EXE文件的工具Dependency Walker</p>
+<h1 id="常见的木马启动方式"><a href="#常见的木马启动方式" class="headerlink" title="常见的木马启动方式"></a>常见的木马启动方式</h1><h2 id="通过”开始程序启动”"><a href="#通过”开始程序启动”" class="headerlink" title="通过”开始程序启动”"></a>通过”开始程序启动”</h2><p>msconfig就可以查看</p>
+<h2 id="通过win-ini"><a href="#通过win-ini" class="headerlink" title="通过win.ini"></a>通过win.ini</h2><p>同启动组一样</p>
+<h2 id="通过注册表启动"><a href="#通过注册表启动" class="headerlink" title="通过注册表启动"></a>通过注册表启动</h2><p>HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRun等等</p>
+<p>木马可以在自身加一个时间控件，以便实时监视注册表中自身的启动键值是否存在，一旦发现被删除，则立即重新写入，以保证下次Windows启动时自己能被运行。这样木马程序和注册表中的启动键值之间形成了一种互相保护的状态。</p>
+<p>安全模式启动Windows，这时，Windows不会加载注册表中的项目</p>
+<p>部分注册表它的内容不会出现在msconfig中，比如</p>
+<p>HKEY_LOCAL_MACHINESoftwareMicrosoftWindowsCurrentVersionRunOnce和HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionRunOnce和HKEY_LOCAL_MACHINESoftwareMicrosoftWindowsCurrentVersionRunServicesOnce</p>
+<p>1 注册表 CurrentUser \ SoftWare \ Microsoft \ Windows \ CurrentVersion \ 下的所有run有关的子键<br>2 注册表 LocalMachine \ SoftWare \ Microsoft \ Windows \ CurrentVersion \ 下的所有run有关的子键<br>3 注册表 CurrentUser \ SoftWare \ Microsoft \ Windows NT \ CurrentVersion \ 键名为load的字符型数据<br>4 注册表 LocalMachine \ SoftWare \ Microsoft \ Windows NT \ CurrentVersion \ 键名为load的字符型数据</p>
+<p>注册表的值%1%*</p>
+<p>%1是输入参数。举个例子来说：<br>右键某些文本类型的文件(如a.bat)时，会有一个”编辑”选项。这个选项对应的注册表里面的命令为%SystemRoot%\notepad.exe %1<br>那么当你单击”编辑”时，上面的命令就会执行。执行的顺序为：首先打开记事本软件%SystemRoot%\notepad.exe；然后，再将a.bat作为参数传递给notepad.exe。这样子的结果就是：用记事本打开了a.bat<br>这个%1此时代表的就是a.bat了，即你操作的那个文件</p>
+<h2 id="通过Autoexec-bat、winstart-bat、config-sys文件"><a href="#通过Autoexec-bat、winstart-bat、config-sys文件" class="headerlink" title="通过Autoexec.bat、winstart.bat、config.sys文件 　"></a>通过Autoexec.bat、winstart.bat、config.sys文件 　</h2><p>其实这种方法并不适合木马使用，因为该文件会在Windows启动前运行，这时系统处于DOS环境，只能运行16位应用程序，Windows下的32位程序是不能运行的。因此也就失去了木马的意义。不过，这并不是说它不能用于启动木马。可以想象，SoftIce for Win98（功能强大的程序调试工具，被黑客奉为至宝，常用于破解应用程序）也是先要在Autoexec.bat文件中运行然后才能在Windows中呼叫出窗口，进行调试的，既然如此，谁能保证木马不会这样启动呢？到目前为止，我还没见过这样启动的木马，我想能写这样木马的人一定是高手中的高手了。 　　</p>
+<p>另外，这两个BAT文件常被用于破坏，它们会在这个文件中加入类似”Deltree C：<em>.</em>“和”Format C：/u”的行，这样，在你启动计算机后还未启动Windows，你的C盘已然空空如也。</p>
+<h2 id="通过System-ini文件"><a href="#通过System-ini文件" class="headerlink" title="通过System.ini文件"></a>通过System.ini文件</h2><p>事实上，System.ini文件并没有给用户可用的启动项目，然而通过它启动却是非常好用的。在System.ini文件的[Boot]域中的Shell项的值正常情况下是”Explorer.exe”，这是Windows的外壳程序，换一个程序就可以彻底改变Windows的面貌（如改为Progman.exe就可以让Win9x变成Windows3.2）。我们可以在”Explorer.exe”后加上木马程序的路径，这样Windows启动后木马也就随之启动，而且即使是安全模式启动也不会跳过这一项，这样木马也就可以保证永远随Windows启动了</p>
+<p>类似于强制绑定首页，会在浏览器的快捷方式后面加上首页的地址</p>
+<h2 id="通过服务加载"><a href="#通过服务加载" class="headerlink" title="通过服务加载"></a>通过服务加载</h2><p>系统要正常的运行，就少不了一些服务，一些木马通过加载服务来达到随系统启动的目的</p>
+<p>控制面板——–管理工具——服务</p>
+<p>通过 net start 服务名(开启服务)    net stop 服务名(关闭服务)</p>
+<h2 id="通过某特定程序或文件启动"><a href="#通过某特定程序或文件启动" class="headerlink" title="通过某特定程序或文件启动"></a>通过某特定程序或文件启动</h2><h3 id="寄生于特定程序之中"><a href="#寄生于特定程序之中" class="headerlink" title="寄生于特定程序之中"></a>寄生于特定程序之中</h3><p>即木马和正常程序捆绑，有点类似于病毒，程序在运行时，木马程序先获得控制权或另开一个线程以监视用户操作，截取密码等，这类木马编写的难度较大，需要了解PE文件结构和Windows的底层知识（直接使用捆绑程序除外）。 </p>
+<p>捆绑和关联文件不同，关联是修改注册表，但捆绑类似于病毒的“感染”，就是把木马的进程感染到其他的执行文件上，业内著名木马“网络公牛 - Netbu ll”就是利用这种方法进行启动。<br>　　网络公牛服务端名称newserver.exe,运行后自动脱壳到c:\windows\system\checkdll.exe目录下，下次开机自动运行,同时服务端在运行时会自动捆绑以下文件：<br>　　win9x: notepad.exe write.exe regedit.exe winmine.exe winhelp.exe<br>　　winnt: notepad.exe regedit.exe reged32.exe drwtsn32.exe winmine.exe<br>　　并且自动搜索系统启动项程序，捆绑之。比如qq.exe realplay.exe<br>　　除非把以上文件全部删除，否则无法清除，但系统文件删除后系统就无法正常运行，所以大多数人只能重装系统。确实牛。</p>
+<h3 id="将特定的程序改名"><a href="#将特定的程序改名" class="headerlink" title="将特定的程序改名"></a>将特定的程序改名</h3><p>这种方式常见于针对QQ的木马，例如将QQ的启动文件QQ2000b.exe，改为QQ2000b.ico.exe（Windows默认是不显示扩展名的，因此它会被显示为QQ2000b.ico，而用户会认为它是一个图标），再将木马程序改为QQ2000b.exe，此后，用户运行QQ，实际是运行了QQ木马，再由QQ木马去启动真正的QQ，这种方式实现起来要比上一种简单的多。</p>
+<h3 id="文件关联"><a href="#文件关联" class="headerlink" title="文件关联"></a>文件关联</h3><p>通常木马程序会将自己和TXT文件或EXE文件关联，这样当你打开一个文本文件或运行一个程序时，木马也就神不知鬼不觉的启动了。 　　</p>
+<p>这类通过特定程序或文件启动的木马，发现比较困难，但查杀并不难。一般地，只要删除相应的文件和注册表键值即可。</p>
+<p>在业内著名的木马冰河就是这样启动的，它关联的是exe类型的文件，方法如下：(以下方法是我在我的win2003中测试通过的)</p>
+<p>注册表 ClassRoot 下的.exe 文件打开方式为exefile，我们就找到exefile子键，然后exefile该键下有一个shell子键，在shell子键下有open子键，在open下有command子键，command里有default键,value为”%1” %* 我们把它改变为 木马路径 “%1” %* 就可以了</p>
+<h3 id="通过进程保护"><a href="#通过进程保护" class="headerlink" title="通过进程保护"></a>通过进程保护</h3><p>　　两个木马进程，互相监视，发现对方被关闭后启动对方。技术其实不神秘，方法如下：<br>　　while (true)<br>　　{System.Threading.Thread.Sleep(500);//检查对方进程是否关闭，关闭的话再打开。}</p>
+<h3 id="通过启动文件夹"><a href="#通过启动文件夹" class="headerlink" title="通过启动文件夹"></a>通过启动文件夹</h3><p>　　开始菜单的启动文件夹内的文件在系统启动后会随系统启动，假如将一个exe文件或exe文件的快捷方式复制到启动文件夹内，太明显，但设置隐藏属性后不会被系统启动。<br>　　有一个办法，将启动文件夹改名为启动a,并将该文件隐藏，然后再新建一个启动文件夹，将原启动文件夹内的所有内容复制到新建的启动文件夹，这样就可以了。(其实系统还是会启动原来的启动文件夹内的内rogn，也就是现在被改为”启动a”的文件夹，而现在我们新建的”启动”文件夹只是一个摆设而已，因为在这里的”启动a”对应着注册表local_machine\software\microsoft\windows\currentversion\explorer\startmenu内的common startup键值，当我们更该原来系统的启动文件夹的名字为”启动a”的时候该键值也会变为:\Documents and Settings\All Users\开始\Programs\启动a”)<br>　　另外可在local_machine\software\microsoft\windows\currentversion下建立RunServices子键来实现自启动，和run不同，run是系统启动后加载,runservices是系统登录时就启动<br>　　在系统根目录下放置Explorer.exe文件，在Explorer.exe文件中去启动正常的Explorer.exe文件，可以在C盘和D盘下都放上。</p>
+<h1 id="PE文件"><a href="#PE文件" class="headerlink" title="PE文件"></a>PE文件</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>PE（Portable Execute）文件是Windows下可执行文件的总称，常见的有DLL，EXE，OCX，SYS等，事实上，一个文件是否是PE文件与其扩展名无关，PE文件可以是任何扩展名。那Windows是怎么区分可执行文件和非可执行文件的呢？我们调用LoadLibrary传递了一个文件名，系统是如何判断这个文件是一个合法的动态库呢？这就涉及到PE文件结构了。</p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>PE文件的结构一般来说：从起始位置开始依次是DOS头，NT头，节表以及具体的节。</p>
+<h3 id="DOS头"><a href="#DOS头" class="headerlink" title="DOS头"></a>DOS头</h3><p>DOS头是用来兼容MS-DOS操作系统的，目的是当这个文件在MS-DOS上运行时提示一段文字，大部分情况下是：<strong>This program cannot be run in DOS mode</strong>，还有一个目的，就是指明NT头在文件中的位置。（利用winhex查看exe、dll文件，确实有那句话）</p>
+<p>e_magic：一个WORD类型，值是一个常数0x4D5A，用文本编辑器查看该值位‘MZ’，<strong>可执行文件必须都是’MZ’开头</strong>。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-19T09:59:50.482Z" itemprop="dateUpdated">2020-03-19 17:59:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/muggle/2019/12/30/12.30/" target="_blank" rel="external">https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://xiongmaozailushang.gitee.io/muggle">
+            <img src="/muggle/img/avatar.jpg" alt="熊猫在路上">
+            熊猫在路上
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/PE%E6%96%87%E4%BB%B6%E5%A4%B4/" rel="tag">PE文件头</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/" rel="tag">可执行文件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/muggle/tags/%E6%9C%A8%E9%A9%AC%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/" rel="tag">木马启动方式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&title=《12-30》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&title=《12-30》 — 熊猫在路上&source=学习可执行文件格式、木马启动的方式以及PE文件头" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《12-30》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/muggle/2019/12/31/12.31/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">12-31</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/muggle/false" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>熊猫在路上 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> 网站备案号： <a href="https://www.beian.miit.gov.cn" target="_blank">湘ICP备19018331号</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&title=《12-30》 — 熊猫在路上&pic=https://xiongmaozailushang.gitee.io/muggle/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&title=《12-30》 — 熊猫在路上&source=学习可执行文件格式、木马启动的方式以及PE文件头" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《12-30》 — 熊猫在路上&url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/&via=https://xiongmaozailushang.gitee.io/muggle" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://xiongmaozailushang.gitee.io/muggle/2019/12/30/12.30/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/muggle/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '熊猫已经不再路上了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '熊猫在路上!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
