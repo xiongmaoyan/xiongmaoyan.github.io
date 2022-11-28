@@ -33,7 +33,7 @@
     </style>
 </head>
 <body background="http://img.mp.itc.cn/upload/20161206/a875ed14f1b9482eb834bd44922a6b0a_th.jpg" >
-    <p>小熊同学正在学习代码，背景可能问题哈哈哈哈哈哈哈</p>
+    <p>小熊同学正在学习代码，背景可能有问题哈哈哈</p>
     <canvas id="pinkboard"></canvas>
     <script>
         var settings = {
@@ -166,7 +166,7 @@
             function pointOnHeart(t) {
                 return new Point(
                     160 * Math.pow(Math.sin(t), 3),
-                    130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+                    130 * Math.cos(t) - 50 * Math.cos(2 * t) + 25
                 );
             }
             // 使用虚拟画布创建粒子图像
