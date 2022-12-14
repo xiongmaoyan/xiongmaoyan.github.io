@@ -43,15 +43,37 @@
 <body background="http://img.mp.itc.cn/upload/20161206/a875ed14f1b9482eb834bd44922a6b0a_th.jpg" >
     <p>对你爱爱爱不完 哈哈哈</p>
     <p2>40%位置调试</p2>
+	
+	<div class="firework-container" >
+		<header>
+			<h1 style = "text-align:center">2022 12 12! ! ! !</h1>
+		</header>
+	</div>
+	<!-- <audio autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="Fire.mp3" ></audio> -->
+	<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="jquery.fireworks.js"></script>
+	<script type="text/javascript">
+		$('.firework-container').fireworks({ 
+		  sound: false, // sound effect
+		  opacity: 0.5, 
+		  width: '100%', 
+		  height: '100%' 
+		});
+	</script>	
+	
     <canvas id="pinkboard"></canvas>
+	<!-- <audio autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="Fire.mp3" ></audio> -->
+
+	
+
     <script>
         var settings = {
             particles: {
-                length: 700,  // 爱心的大小
-                duration: 3,  // 爱心扩散速度，越小速度越快
+                length: 500,  // 爱心的大小
+                duration: 2,  // 爱心扩散速度，越小速度越快
                 velocity: 100,  // 爱心扩散速度，越小速度越慢
                 effect: -0.75, // 爱心收缩效果，比如：1扩散，-2收缩
-                size: 26, // 爱心数量
+                size: 30, // 爱心数量
             },
         };
         (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
@@ -175,7 +197,7 @@
             function pointOnHeart(t) {
                 return new Point(
                     160 * Math.pow(Math.sin(t), 3),
-                    130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 255
+                    130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
                 );
             }
             // 使用虚拟画布创建粒子图像
